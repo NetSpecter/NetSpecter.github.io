@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="第一次写博客，发个最近做的CCNP实验水一波。  下图为拓扑结构: 实验需求为：内网的172.16.1.1访问外网走上面的链路，192.168.1.1访问外网走下面的链路。当其中一条链路出故障时，可以自动切换线路使得上网不受影响。">
+<meta name="description" content="第一次写博客，发个最近做的CCNP实验水一波。  下图为拓扑结构: 实验需求为：内网的172.16.1.1访问外网走上面的链路，192.168.1.1访问外网走下面的链路。当其中一条链路出故障时，可以自动切换线路使得上网不受影响。 先配置IP地址和OSPF：R1：12345678910int f0/0ip add 10.12.12.1 255.255.255.0no shutdownip ospf">
 <meta name="keywords" content="CCNP-策略路由">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CCNP学习心得之双出口NAT">
 <meta property="og:url" content="http://yoursite.com/2018/03/16/CCNP学习心得之双出口NAT/index.html">
 <meta property="og:site_name" content="NetSpecter的博客">
-<meta property="og:description" content="第一次写博客，发个最近做的CCNP实验水一波。  下图为拓扑结构: 实验需求为：内网的172.16.1.1访问外网走上面的链路，192.168.1.1访问外网走下面的链路。当其中一条链路出故障时，可以自动切换线路使得上网不受影响。">
+<meta property="og:description" content="第一次写博客，发个最近做的CCNP实验水一波。  下图为拓扑结构: 实验需求为：内网的172.16.1.1访问外网走上面的链路，192.168.1.1访问外网走下面的链路。当其中一条链路出故障时，可以自动切换线路使得上网不受影响。 先配置IP地址和OSPF：R1：12345678910int f0/0ip add 10.12.12.1 255.255.255.0no shutdownip ospf">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/03/16/CCNP学习心得之双出口NAT/小学生.gif">
-<meta property="og:image" content="http://yoursite.com/2018/03/16/CCNP学习心得之双出口NAT/拓扑.jpg">
-<meta property="og:updated_time" content="2018-03-16T08:16:29.981Z">
+<meta property="og:image" content="http://yoursite.com/2018/03/16/CCNP学习心得之双出口NAT/拓扑.JPG">
+<meta property="og:updated_time" content="2018-03-16T08:26:04.659Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CCNP学习心得之双出口NAT">
-<meta name="twitter:description" content="第一次写博客，发个最近做的CCNP实验水一波。  下图为拓扑结构: 实验需求为：内网的172.16.1.1访问外网走上面的链路，192.168.1.1访问外网走下面的链路。当其中一条链路出故障时，可以自动切换线路使得上网不受影响。">
+<meta name="twitter:description" content="第一次写博客，发个最近做的CCNP实验水一波。  下图为拓扑结构: 实验需求为：内网的172.16.1.1访问外网走上面的链路，192.168.1.1访问外网走下面的链路。当其中一条链路出故障时，可以自动切换线路使得上网不受影响。 先配置IP地址和OSPF：R1：12345678910int f0/0ip add 10.12.12.1 255.255.255.0no shutdownip ospf">
 <meta name="twitter:image" content="http://yoursite.com/2018/03/16/CCNP学习心得之双出口NAT/小学生.gif">
 
 
@@ -392,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  88
+                  275
                 </span>
               
 
@@ -419,8 +419,11 @@
       
         <pre><code>第一次写博客，发个最近做的CCNP实验水一波。
 </code></pre><p><img src="/2018/03/16/CCNP学习心得之双出口NAT/小学生.gif" alt="小学生"></p>
-<p>下图为拓扑结构:<br><img src="/2018/03/16/CCNP学习心得之双出口NAT/拓扑.jpg" alt="拓扑"></p>
+<p>下图为拓扑结构:<br><img src="/2018/03/16/CCNP学习心得之双出口NAT/拓扑.JPG" alt="拓扑"></p>
 <p>实验需求为：内网的172.16.1.1访问外网走上面的链路，192.168.1.1访问外网走下面的链路。当其中一条链路出故障时，可以自动切换线路使得上网不受影响。</p>
+<p>先配置IP地址和OSPF：<br>R1：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int f0/0</span><br><span class="line">ip add 10.12.12.1 255.255.255.0</span><br><span class="line">no shutdown</span><br><span class="line">ip ospf 1 area 0</span><br><span class="line">int loopback 1</span><br><span class="line">ip add 172.16.1.1 255.255.255.0</span><br><span class="line">ip ospf 1 area 0</span><br><span class="line">int loopback 2</span><br><span class="line">ip add 192.168.1.1 255.255.255.0</span><br><span class="line">ip ospf 1 area 0</span><br></pre></td></tr></table></figure></p>
+<p>R2：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int f0/0</span><br><span class="line">ip add 10.12.12.2 255.255.255.0</span><br><span class="line">no shutdown</span><br><span class="line">ip ospf 1 area 0</span><br><span class="line">int f1/0</span><br><span class="line">ip add 23.23.172.2 255.255.255.0</span><br><span class="line">no shutdown </span><br><span class="line">int f0/1</span><br><span class="line">ip add 23.23.192.2 255.255.255.0</span><br><span class="line">no shutdown</span><br></pre></td></tr></table></figure></p>
+<p>R3：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int f0/1</span><br><span class="line">ip add 23.23.172.3 255.255.255.0</span><br><span class="line">no shutdown </span><br><span class="line">int f0/0</span><br><span class="line">ip add 23.23.192.3 255.255.255.0</span><br><span class="line">no shutdown    </span><br><span class="line">int loopback 1</span><br><span class="line">ip add 211.1.1.1 255.255.255.252</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -691,7 +694,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">88</span>
+    <span title="Site words total count">275</span>
   
 </div>
 

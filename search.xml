@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[CCNP学习心得之双出口NAT]]></title>
     <url>%2F2018%2F03%2F16%2FCCNP%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97%E4%B9%8B%E5%8F%8C%E5%87%BA%E5%8F%A3NAT%2F</url>
-    <content type="text"><![CDATA[第一次写博客，发个最近做的CCNP实验水一波。 下图为拓扑结构: 实验需求为：内网的172.16.1.1访问外网走上面的链路，192.168.1.1访问外网走下面的链路。当其中一条链路出故障时，可以自动切换线路使得上网不受影响。]]></content>
+    <content type="text"><![CDATA[第一次写博客，发个最近做的CCNP实验水一波。 下图为拓扑结构: 实验需求为：内网的172.16.1.1访问外网走上面的链路，192.168.1.1访问外网走下面的链路。当其中一条链路出故障时，可以自动切换线路使得上网不受影响。 先配置IP地址和OSPF：R1：12345678910int f0/0ip add 10.12.12.1 255.255.255.0no shutdownip ospf 1 area 0int loopback 1ip add 172.16.1.1 255.255.255.0ip ospf 1 area 0int loopback 2ip add 192.168.1.1 255.255.255.0ip ospf 1 area 0 R2：12345678910int f0/0ip add 10.12.12.2 255.255.255.0no shutdownip ospf 1 area 0int f1/0ip add 23.23.172.2 255.255.255.0no shutdown int f0/1ip add 23.23.192.2 255.255.255.0no shutdown R3：12345678int f0/1ip add 23.23.172.3 255.255.255.0no shutdown int f0/0ip add 23.23.192.3 255.255.255.0no shutdown int loopback 1ip add 211.1.1.1 255.255.255.252]]></content>
       <tags>
         <tag>CCNP-策略路由</tag>
       </tags>
