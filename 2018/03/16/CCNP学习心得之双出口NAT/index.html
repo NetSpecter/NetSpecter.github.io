@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="CCNP-策略路由," />
 
 
 
@@ -79,17 +79,20 @@
 
 
 
-<meta name="description" content="网络硬件&amp;安全学习笔记">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta name="description" content="第一次写博客，发个最近做的CCNP实验水一波。 ![小学生](CCNP学习心得之双出口NAT/小学生.gif) 下图为拓扑结构: 实验需求为：内网的172.16.1.1访问外网走上面的链路，192.168.1.1访问外网走下面的链路。当其中一条链路出故障时，可以自动切换线路使得上网不受影响。">
+<meta name="keywords" content="CCNP-策略路由">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CCNP学习心得之双出口NAT">
+<meta property="og:url" content="http://yoursite.com/2018/03/16/CCNP学习心得之双出口NAT/index.html">
 <meta property="og:site_name" content="NetSpecter的博客">
-<meta property="og:description" content="网络硬件&amp;安全学习笔记">
+<meta property="og:description" content="第一次写博客，发个最近做的CCNP实验水一波。 ![小学生](CCNP学习心得之双出口NAT/小学生.gif) 下图为拓扑结构: 实验需求为：内网的172.16.1.1访问外网走上面的链路，192.168.1.1访问外网走下面的链路。当其中一条链路出故障时，可以自动切换线路使得上网不受影响。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-13T12:46:49.820Z">
+<meta property="og:image" content="http://yoursite.com/2018/03/16/CCNP学习心得之双出口NAT/拓扑.jpg">
+<meta property="og:updated_time" content="2018-03-16T08:12:30.206Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="网络硬件&amp;安全学习笔记">
+<meta name="twitter:title" content="CCNP学习心得之双出口NAT">
+<meta name="twitter:description" content="第一次写博客，发个最近做的CCNP实验水一波。 ![小学生](CCNP学习心得之双出口NAT/小学生.gif) 下图为拓扑结构: 实验需求为：内网的172.16.1.1访问外网走上面的链路，192.168.1.1访问外网走下面的链路。当其中一条链路出故障时，可以自动切换线路使得上网不受影响。">
+<meta name="twitter:image" content="http://yoursite.com/2018/03/16/CCNP学习心得之双出口NAT/拓扑.jpg">
 
 
 
@@ -119,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/about/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/16/CCNP学习心得之双出口NAT/"/>
 
 
 
 
 
-  <title>about | NetSpecter的博客</title>
+  <title>CCNP学习心得之双出口NAT | NetSpecter的博客</title>
   
 
 
@@ -294,33 +297,198 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/16/CCNP学习心得之双出口NAT/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="NetSpecter">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/275381.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NetSpecter的博客">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">about</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
+          <h1 class="post-title" itemprop="name headline">CCNP学习心得之双出口NAT</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-16T15:31:59+08:00">
+                2018-03-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-      </div>
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/16/CCNP学习心得之双出口NAT/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/16/CCNP学习心得之双出口NAT/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/03/16/CCNP学习心得之双出口NAT/" class="leancloud_visitors" data-flag-title="CCNP学习心得之双出口NAT">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  104
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <pre><code>第一次写博客，发个最近做的CCNP实验水一波。
+![小学生](CCNP学习心得之双出口NAT/小学生.gif)
+</code></pre><p>下图为拓扑结构:<br><img src="/2018/03/16/CCNP学习心得之双出口NAT/拓扑.jpg" alt="拓扑"></p>
+<p>实验需求为：内网的172.16.1.1访问外网走上面的链路，192.168.1.1访问外网走下面的链路。当其中一条链路出故障时，可以自动切换线路使得上网不受影响。</p>
+
       
     </div>
     
     
     
+
+	
+      <div>
+        
+    <div style="text-align:center;color: #ccc;font-size:14px;">
+        ------ 本文结束<i class="fa fa-paw"></i>感谢您的阅读 ------</div>
+    
+      </div>
+    
+	
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    NetSpecter
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2018/03/16/CCNP学习心得之双出口NAT/" title="CCNP学习心得之双出口NAT">http://yoursite.com/2018/03/16/CCNP学习心得之双出口NAT/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CCNP-策略路由/" rel="tag"># CCNP-策略路由</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
