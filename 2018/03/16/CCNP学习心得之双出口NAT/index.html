@@ -91,7 +91,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/03/16/CCNP学习心得之双出口NAT/拓扑.JPG">
 <meta property="og:image" content="http://yoursite.com/2018/03/16/CCNP学习心得之双出口NAT/滑稽.jpeg">
 <meta property="og:image" content="http://yoursite.com/2018/03/16/CCNP学习心得之双出口NAT/分流图.JPG">
-<meta property="og:updated_time" content="2018-03-16T09:17:24.954Z">
+<meta property="og:updated_time" content="2018-03-16T09:38:24.059Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CCNP学习心得之双出口NAT">
 <meta name="twitter:description" content="第一次写博客，发个最近做的CCNP实验水一波。  下图为拓扑结构: 实验需求为：内网的172.16.1.1访问外网走上面的链路，192.168.1.1访问外网走下面的链路。当其中一条链路出故障时，可以自动切换线路使得上网不受影响。 先配置IP地址和OSPF：R1：12345678910int f0/0ip add 10.12.12.1 255.255.255.0no shutdownip ospf">
@@ -394,7 +394,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  847
+                  845
                 </span>
               
 
@@ -426,7 +426,7 @@
 <p>先配置IP地址和OSPF：<br>R1：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int f0/0</span><br><span class="line">ip add 10.12.12.1 255.255.255.0</span><br><span class="line">no shutdown</span><br><span class="line">ip ospf 1 area 0 #接口下启用OSPF</span><br><span class="line">int loopback 1</span><br><span class="line">ip add 172.16.1.1 255.255.255.0</span><br><span class="line">ip ospf 1 area 0</span><br><span class="line">int loopback 2</span><br><span class="line">ip add 192.168.1.1 255.255.255.0</span><br><span class="line">ip ospf 1 area 0</span><br></pre></td></tr></table></figure></p>
 <p>R2：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int f0/0</span><br><span class="line">ip add 10.12.12.2 255.255.255.0</span><br><span class="line">no shutdown</span><br><span class="line">ip ospf 1 area 0</span><br><span class="line">int f1/0</span><br><span class="line">ip add 23.23.172.2 255.255.255.0</span><br><span class="line">no shutdown </span><br><span class="line">int f0/1</span><br><span class="line">ip add 23.23.192.2 255.255.255.0</span><br><span class="line">no shutdown</span><br></pre></td></tr></table></figure></p>
 <p>R3：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int f0/1</span><br><span class="line">ip add 23.23.172.3 255.255.255.0</span><br><span class="line">no shutdown </span><br><span class="line">int f0/0</span><br><span class="line">ip add 23.23.192.3 255.255.255.0</span><br><span class="line">no shutdown    </span><br><span class="line">int loopback 1</span><br><span class="line">ip add 211.1.1.1 255.255.255.252</span><br></pre></td></tr></table></figure></p>
-<p>接下来设置ACL（访问控制列表）匹配流量，再用策略路由调用ACL，将匹配到的流量送到相应的接口。设置两个下一跳，当第一条链路故障时第一个下一跳无法到达，可以调用第二个，防止流量断网。（两个链路都故障还是回去牵网线吧）<br><img src="/2018/03/16/CCNP学习心得之双出口NAT/滑稽.jpeg" alt="滑稽"><br>R2：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">access-list 1 permit 172.16.1.0 0.0.0.255</span><br><span class="line">access-list 2 permit 192.168.1.0 0.0.0.255</span><br><span class="line">route-map pbr permit 10</span><br><span class="line">match ip add 1</span><br><span class="line">set ip next-hop 23.23.172.3 23.23.192.3</span><br><span class="line">route-map pbr permit 20</span><br><span class="line">match ip add 2</span><br><span class="line">set ip next-hop 23.23.192.3 23.23.172.3</span><br><span class="line">int f0/0</span><br><span class="line">ip policy route-map pbr #接口下调用策略路由</span><br></pre></td></tr></table></figure></p>
+<p>  接下来设置ACL（访问控制列表）匹配流量，再用策略路由调用ACL，将匹配到的流量送到相应的接口。设置两个下一跳，当第一条链路故障时第一个下一跳无法到达，可以调用第二个，防止断网。（两个链路都故障还是回去牵网线吧）<br><img src="/2018/03/16/CCNP学习心得之双出口NAT/滑稽.jpeg" alt="滑稽"><br>R2：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">access-list 1 permit 172.16.1.0 0.0.0.255</span><br><span class="line">access-list 2 permit 192.168.1.0 0.0.0.255</span><br><span class="line">route-map pbr permit 10</span><br><span class="line">match ip add 1</span><br><span class="line">set ip next-hop 23.23.172.3 23.23.192.3</span><br><span class="line">route-map pbr permit 20</span><br><span class="line">match ip add 2</span><br><span class="line">set ip next-hop 23.23.192.3 23.23.172.3</span><br><span class="line">int f0/0</span><br><span class="line">ip policy route-map pbr #接口下调用策略路由</span><br></pre></td></tr></table></figure></p>
 <p>现在策略路由已经将流量送到了两个出接口了，这时候调用NAT，将地址转换为公网地址然后才能把流量发出去。</p>
 <p>R2：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ip nat inside source route-map nat1 interface f1/0 overload </span><br><span class="line">ip nat inside source route-map nat2 interface f0/1 overload</span><br></pre></td></tr></table></figure></p>
 <p>这里的NAT采用PAT（端口多路复用）的方式，首先调用第一条NAT，NAT_1又调用了路由图_1，接下来我们去看路由图_1的内容。</p>
@@ -708,7 +708,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">847</span>
+    <span title="Site words total count">845</span>
   
 </div>
 
