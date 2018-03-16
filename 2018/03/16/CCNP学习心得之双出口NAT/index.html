@@ -92,7 +92,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/03/16/CCNP学习心得之双出口NAT/滑稽.jpeg">
 <meta property="og:image" content="http://yoursite.com/2018/03/16/CCNP学习心得之双出口NAT/分流图.JPG">
 <meta property="og:image" content="http://yoursite.com/2018/03/16/CCNP学习心得之双出口NAT/切换路径.JPG">
-<meta property="og:updated_time" content="2018-03-16T09:48:24.220Z">
+<meta property="og:updated_time" content="2018-03-16T09:54:04.432Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CCNP学习心得之双出口NAT">
 <meta name="twitter:description" content="第一次写博客，发个最近做的CCNP实验水一波。  下图为拓扑结构: 实验需求为：内网的172.16.1.1访问外网走上面的链路，192.168.1.1访问外网走下面的链路。当其中一条链路出故障时，可以自动切换线路使得上网不受影响。 先配置IP地址和OSPF：R1：12345678910int f0/0ip add 10.12.12.1 255.255.255.0no shutdownip ospf">
@@ -441,8 +441,7 @@
 <p>此时可以分流：<br><img src="/2018/03/16/CCNP学习心得之双出口NAT/分流图.JPG" alt="分流图"></p>
 <p>当R2的f1/0接口关闭后：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int f1/0</span><br><span class="line">shutdown</span><br></pre></td></tr></table></figure></p>
 <p>根据现象可以看出已经自动切换路径了。<br><img src="/2018/03/16/CCNP学习心得之双出口NAT/切换路径.JPG" alt="切换路径"></p>
-<pre><code>###常见问题###
-</code></pre>
+<font color="#f31616" size="5">常见问题</font>
       
     </div>
     
