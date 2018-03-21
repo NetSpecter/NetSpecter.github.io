@@ -91,7 +91,7 @@
 <meta property="og:image" content="http://qxian.top/2018/03/21/moctf部分题目writeup/js.jpg">
 <meta property="og:image" content="http://qxian.top/2018/03/21/moctf部分题目writeup/百变flag.jpg">
 <meta property="og:image" content="http://qxian.top/2018/03/21/moctf部分题目writeup/output.jpeg">
-<meta property="og:updated_time" content="2018-03-21T06:10:00.181Z">
+<meta property="og:updated_time" content="2018-03-21T06:33:55.151Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="moctf部分题目writeup">
 <meta name="twitter:description" content="moctf是理工和集大的大佬们搭建的平台，下面是一些我做出来的题目的writeup。 题目链接 MISC捉迷藏题目给了一个zhuomicang.zip的压缩包，解压得到flag.txt和2.jpg。果断打开flag.txt，里面的内容是：1bW9jdGZ7QnVfeUEwX3QxX2oxYTB9 看这架势应该是base64,拿去在线网站解一下，网址为：http://www1.tc711.com/t">
@@ -394,7 +394,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  640
+                  821
                 </span>
               
 
@@ -431,6 +431,10 @@
 <h2 id="杰斯的魔法"><a href="#杰斯的魔法" class="headerlink" title="杰斯的魔法"></a>杰斯的魔法</h2><p>打开链接，是一串js代码，document.write()方法是用来向网页输出内容的。所以，复制一下扔控制台，得到flag。<br><img src="/2018/03/21/moctf部分题目writeup/js.jpg" alt="js.jpg"></p>
 <h2 id="百变flag"><a href="#百变flag" class="headerlink" title="百变flag"></a>百变flag</h2><p>打开链接，发现左上角有一小张图片，但是右键不能保存，返回题目链接，右键保存，得到一张f1ag.png。用十六进制编辑器查看，发现后面有一个f1ag.exe，于是拿到kali分解，提取出压缩包，里面就是f1ag.exe，但是打不开。<br>这时候打开十六进制编辑器（WinHex），在最后面发现重要线索。<br><img src="/2018/03/21/moctf部分题目writeup/百变flag.jpg" alt="百变flag"><br>图片中的数据好像被反过来了，这时候想到提示：特殊文件头+简单字符串编程，应该就是要把数据反回来，再加上文件头。<br>python启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">output = inputFile[::-1]</span><br><span class="line">outputFile = open(&apos;output&apos;, &apos;wb&apos;)</span><br><span class="line">outputFile.write(output)</span><br></pre></td></tr></table></figure></p>
 <p>运行后得到output文件，用WinHex查看发现已经反回来了，而且文件头已经有了：FFD8FFE1，是JPEG的文件格式，所以加上.jpeg后缀就得到flag了。<br><img src="/2018/03/21/moctf部分题目writeup/output.jpeg" alt="output.jpeg"></p>
+<h2 id="歌曲"><a href="#歌曲" class="headerlink" title="歌曲"></a>歌曲</h2><p>下载压缩包，解压得到apple.mp3和apple.png。图片中间藏着一个二维码，扫描出来是一串Unicode编码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\u7f8a\u7531\u5927\u4e95\u592b\u5927\u4eba\u738b\u4e2d\u5de5</span><br></pre></td></tr></table></figure></p>
+<p>拿去在线网站解一下：<br><a href="http://tool.chinaz.com/tools/unicode.aspx" target="_blank" rel="noopener">Unicode编码转换</a><br>得到一串中文：羊由大井夫大人王中工，很明显是当铺密码，解出来是：9158753624。<br>然后是一个MP3文件，猜测应该是一个MP3隐写，前面那串数字是密码，用MP3stego试一下：在Decode.exe目录下，运行cmd，输入Decode.exe -X apple.mp3 -P 9158753624（MP3文件放到该目录）。运行后生成一个apple.mp3.txt的文件，文件内容为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Q1RGe3hpYW9fcGluZ19ndW99</span><br></pre></td></tr></table></figure></p>
+<p>拿去base64一下，得到：CTF{xiao_ping_guo}</p>
+<p>未完待续。。。</p>
 
       
     </div>
@@ -745,7 +749,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#MISC"><span class="nav-number">1.</span> <span class="nav-text">MISC</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#捉迷藏"><span class="nav-number"></span> <span class="nav-text">捉迷藏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我可是黑客"><span class="nav-number"></span> <span class="nav-text">我可是黑客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#光阴似箭"><span class="nav-number"></span> <span class="nav-text">光阴似箭</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扫扫出奇迹"><span class="nav-number"></span> <span class="nav-text">扫扫出奇迹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#杰斯的魔法"><span class="nav-number"></span> <span class="nav-text">杰斯的魔法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#百变flag"><span class="nav-number"></span> <span class="nav-text">百变flag</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#MISC"><span class="nav-number">1.</span> <span class="nav-text">MISC</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#捉迷藏"><span class="nav-number"></span> <span class="nav-text">捉迷藏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我可是黑客"><span class="nav-number"></span> <span class="nav-text">我可是黑客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#光阴似箭"><span class="nav-number"></span> <span class="nav-text">光阴似箭</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扫扫出奇迹"><span class="nav-number"></span> <span class="nav-text">扫扫出奇迹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#杰斯的魔法"><span class="nav-number"></span> <span class="nav-text">杰斯的魔法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#百变flag"><span class="nav-number"></span> <span class="nav-text">百变flag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#歌曲"><span class="nav-number"></span> <span class="nav-text">歌曲</span></a></div>
             
 
           </div>
@@ -779,7 +783,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">3.9k</span>
+    <span title="Site words total count">4.1k</span>
   
 </div>
 
