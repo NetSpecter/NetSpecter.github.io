@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -79,20 +79,23 @@
 
 
 
-<meta name="description" content="moctf是理工和集大的大佬们搭建的平台，网址是http://www.moctf.com/。喜欢CTF的朋友可以来水一水，下面是一些我做出来的题目的writeup。 ###MISC### ##捉迷藏##题目给了一个zhuomicang.zip的压缩包，解压得到flag.txt和2.jpg。果断打开flag.txt，里面的内容是：12看这架势应该是base64,拿去在线网站解一下，网址为：http:">
+<meta name="description" content="moctf是理工和集大的大佬们搭建的平台，下面是一些我做出来的题目的writeup。 题目链接 MISC捉迷藏题目给了一个zhuomicang.zip的压缩包，解压得到flag.txt和2.jpg。果断打开flag.txt，里面的内容是：1bW9jdGZ7QnVfeUEwX3QxX2oxYTB9 看这架势应该是base64,拿去在线网站解一下，网址为：http://www1.tc711.com/t">
 <meta name="keywords" content="CTF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="moctf部分题目writeup">
 <meta property="og:url" content="http://qxian.top/2018/03/21/moctf部分题目writeup/index.html">
 <meta property="og:site_name" content="NetSpecter的博客">
-<meta property="og:description" content="moctf是理工和集大的大佬们搭建的平台，网址是http://www.moctf.com/。喜欢CTF的朋友可以来水一水，下面是一些我做出来的题目的writeup。 ###MISC### ##捉迷藏##题目给了一个zhuomicang.zip的压缩包，解压得到flag.txt和2.jpg。果断打开flag.txt，里面的内容是：12看这架势应该是base64,拿去在线网站解一下，网址为：http:">
+<meta property="og:description" content="moctf是理工和集大的大佬们搭建的平台，下面是一些我做出来的题目的writeup。 题目链接 MISC捉迷藏题目给了一个zhuomicang.zip的压缩包，解压得到flag.txt和2.jpg。果断打开flag.txt，里面的内容是：1bW9jdGZ7QnVfeUEwX3QxX2oxYTB9 看这架势应该是base64,拿去在线网站解一下，网址为：http://www1.tc711.com/t">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://qxian.top/2018/03/21/moctf部分题目writeup/flag.jpg">
+<meta property="og:image" content="http://qxian.top/2018/03/21/moctf部分题目writeup/js.jpg">
+<meta property="og:image" content="http://qxian.top/2018/03/21/moctf部分题目writeup/百变flag.jpg">
 <meta property="og:image" content="http://qxian.top/2018/03/21/moctf部分题目writeup/output.jpeg">
-<meta property="og:updated_time" content="2018-03-21T05:47:26.156Z">
+<meta property="og:updated_time" content="2018-03-21T06:10:00.181Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="moctf部分题目writeup">
-<meta name="twitter:description" content="moctf是理工和集大的大佬们搭建的平台，网址是http://www.moctf.com/。喜欢CTF的朋友可以来水一水，下面是一些我做出来的题目的writeup。 ###MISC### ##捉迷藏##题目给了一个zhuomicang.zip的压缩包，解压得到flag.txt和2.jpg。果断打开flag.txt，里面的内容是：12看这架势应该是base64,拿去在线网站解一下，网址为：http:">
-<meta name="twitter:image" content="http://qxian.top/2018/03/21/moctf部分题目writeup/output.jpeg">
+<meta name="twitter:description" content="moctf是理工和集大的大佬们搭建的平台，下面是一些我做出来的题目的writeup。 题目链接 MISC捉迷藏题目给了一个zhuomicang.zip的压缩包，解压得到flag.txt和2.jpg。果断打开flag.txt，里面的内容是：1bW9jdGZ7QnVfeUEwX3QxX2oxYTB9 看这架势应该是base64,拿去在线网站解一下，网址为：http://www1.tc711.com/t">
+<meta name="twitter:image" content="http://qxian.top/2018/03/21/moctf部分题目writeup/flag.jpg">
 
 
 
@@ -100,7 +103,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -391,7 +394,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  705
+                  640
                 </span>
               
 
@@ -416,10 +419,17 @@
       
 
       
-        <pre><code>moctf是理工和集大的大佬们搭建的平台，网址是http://www.moctf.com/。喜欢CTF的朋友可以来水一水，下面是一些我做出来的题目的writeup。
-</code></pre><p>###MISC###</p>
-<p>##捉迷藏##<br>题目给了一个zhuomicang.zip的压缩包，解压得到flag.txt和2.jpg。果断打开flag.txt，里面的内容是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">看这架势应该是base64,拿去在线网站解一下，网址为：http://www1.tc711.com/tool/BASE64.htm。解出来看起来像是flag了:</span><br><span class="line">```moctf&#123;Bu_yA0_t1_j1a0&#125;</span><br></pre></td></tr></table></figure></p>
-<p>但是仔细看，内容是不要提交，不管了先交，万一出题人想皮一下呢。交上去，报错。那只能看图片了，先用十六进制编辑器看一下，发现图片里面还有一个flag.txt。拿去kali里面binwalk一下，得到一个压缩包，解压得到flag.txt。里面是一串数字：<br><figure class="highlight plain"><figcaption><span>111 99 116 102 123 104 49 100 51 95 97 78 100 95 115 51 51 75 125```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">猜想应该是十进制转ASCII码，工具解一下，得到flag：moctf&#123;h1d3_aNd_s33K&#125;</span><br><span class="line">工具地址：链接：https://pan.baidu.com/s/1IDsoRb40Tv4TAnQxlEAOQQ 密码：kch0</span><br><span class="line"></span><br><span class="line">##我可是黑客##</span><br><span class="line">点进链接是一张图片，图片上写了审查元素，按了下F12，没有东西。好吧，保存下来，用十六进制编辑器打开，发现最后面有料：moctf&#123;e4sy_1ma9e_m1sc&#125;。</span><br><span class="line"></span><br><span class="line">##光阴似箭##</span><br><span class="line">打开链接，是一张png的动图，保存为gif。然后拿去gif分解网站分解一下得到flag：</span><br><span class="line">![flag.jpg](moctf部分题目writeup/flag.jpg)</span><br><span class="line"></span><br><span class="line">##扫扫出奇迹##</span><br><span class="line">二维码扫描工具，扫一下得到flag：moctf&#123;qr_code_1s_1n_1t&#125;</span><br><span class="line"></span><br><span class="line">##杰斯的魔法##</span><br><span class="line">打开链接，是一串js代码，document.write()方法是用来向网页输出内容的。所以，复制一下扔控制台，得到flag。</span><br><span class="line">![js.jpg](moctf部分题目writeup/js.jpg)</span><br><span class="line"></span><br><span class="line">##百变flag##</span><br><span class="line">打开链接，发现左上角有一小张图片，但是右键不能保存，返回题目链接，右键保存，得到一张f1ag.png。用十六进制编辑器查看，发现后面有一个f1ag.exe，于是拿到kali分解，提取出压缩包，里面就是f1ag.exe，但是打不开。</span><br><span class="line">这时候打开十六进制编辑器（WinHex），在最后面发现重要线索。</span><br><span class="line">![百变flag](moctf部分题目writeup/百变flag.jpg)</span><br><span class="line">图片中的数据好像被反过来了，这时候想到提示：特殊文件头+简单字符串编程，应该就是要把数据反回来，再加上文件头。</span><br><span class="line">python启动</span><br><span class="line">```inputFile = open(&apos;f1ag.exe&apos;, &apos;rb&apos;).read()</span><br><span class="line">output = inputFile[::-1]</span><br><span class="line">outputFile = open(&apos;output&apos;, &apos;wb&apos;)</span><br><span class="line">outputFile.write(output)</span><br></pre></td></tr></table></figure></p>
+        <pre><code>moctf是理工和集大的大佬们搭建的平台，下面是一些我做出来的题目的writeup。
+</code></pre><p><a href="http://www.moctf.com/" target="_blank" rel="noopener">题目链接</a></p>
+<h3 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h3><h2 id="捉迷藏"><a href="#捉迷藏" class="headerlink" title="捉迷藏"></a>捉迷藏</h2><p>题目给了一个zhuomicang.zip的压缩包，解压得到flag.txt和2.jpg。果断打开flag.txt，里面的内容是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bW9jdGZ7QnVfeUEwX3QxX2oxYTB9</span><br></pre></td></tr></table></figure></p>
+<p>看这架势应该是base64,拿去在线网站解一下，网址为：<br><a href="http://www1.tc711.com/tool/BASE64.htm" target="_blank" rel="noopener">http://www1.tc711.com/tool/BASE64.htm</a><br>解出来看起来像是flag了:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moctf&#123;Bu_yA0_t1_j1a0&#125;</span><br></pre></td></tr></table></figure></p>
+<p>但是仔细看，内容是不要提交，不管了先交，万一出题人想皮一下呢。交上去，报错。那只能看图片了，先用十六进制编辑器看一下，发现图片里面还有一个flag.txt。拿去kali里面binwalk一下，得到一个压缩包，解压得到flag.txt。里面是一串数字：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">109 111 99 116 102 123 104 49 100 51 95 97 78 100 95 115 51 51 75 125</span><br></pre></td></tr></table></figure></p>
+<p>猜想应该是十进制转ASCII码，工具解一下，得到flag：moctf{h1d3_aNd_s33K}<br>工具地址：链接：<a href="https://pan.baidu.com/s/1IDsoRb40Tv4TAnQxlEAOQQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1IDsoRb40Tv4TAnQxlEAOQQ</a> 密码：kch0</p>
+<h2 id="我可是黑客"><a href="#我可是黑客" class="headerlink" title="我可是黑客"></a>我可是黑客</h2><p>点进链接是一张图片，图片上写了审查元素，按了下F12，没有东西。好吧，保存下来，用十六进制编辑器打开，发现最后面有料：moctf{e4sy_1ma9e_m1sc}。</p>
+<h2 id="光阴似箭"><a href="#光阴似箭" class="headerlink" title="光阴似箭"></a>光阴似箭</h2><p>打开链接，是一张png的动图，保存为gif。然后拿去gif分解网站分解一下得到flag：<br><img src="/2018/03/21/moctf部分题目writeup/flag.jpg" alt="flag.jpg"><br><a href="http://www.asqql.com/gifcut/" target="_blank" rel="noopener">在线gif分解网站</a></p>
+<h2 id="扫扫出奇迹"><a href="#扫扫出奇迹" class="headerlink" title="扫扫出奇迹"></a>扫扫出奇迹</h2><p>二维码扫描工具，扫一下得到flag：moctf{qr_code_1s_1n_1t}</p>
+<h2 id="杰斯的魔法"><a href="#杰斯的魔法" class="headerlink" title="杰斯的魔法"></a>杰斯的魔法</h2><p>打开链接，是一串js代码，document.write()方法是用来向网页输出内容的。所以，复制一下扔控制台，得到flag。<br><img src="/2018/03/21/moctf部分题目writeup/js.jpg" alt="js.jpg"></p>
+<h2 id="百变flag"><a href="#百变flag" class="headerlink" title="百变flag"></a>百变flag</h2><p>打开链接，发现左上角有一小张图片，但是右键不能保存，返回题目链接，右键保存，得到一张f1ag.png。用十六进制编辑器查看，发现后面有一个f1ag.exe，于是拿到kali分解，提取出压缩包，里面就是f1ag.exe，但是打不开。<br>这时候打开十六进制编辑器（WinHex），在最后面发现重要线索。<br><img src="/2018/03/21/moctf部分题目writeup/百变flag.jpg" alt="百变flag"><br>图片中的数据好像被反过来了，这时候想到提示：特殊文件头+简单字符串编程，应该就是要把数据反回来，再加上文件头。<br>python启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">output = inputFile[::-1]</span><br><span class="line">outputFile = open(&apos;output&apos;, &apos;wb&apos;)</span><br><span class="line">outputFile.write(output)</span><br></pre></td></tr></table></figure></p>
 <p>运行后得到output文件，用WinHex查看发现已经反回来了，而且文件头已经有了：FFD8FFE1，是JPEG的文件格式，所以加上.jpeg后缀就得到flag了。<br><img src="/2018/03/21/moctf部分题目writeup/output.jpeg" alt="output.jpeg"></p>
 
       
@@ -570,8 +580,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -717,6 +736,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#MISC"><span class="nav-number">1.</span> <span class="nav-text">MISC</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#捉迷藏"><span class="nav-number"></span> <span class="nav-text">捉迷藏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我可是黑客"><span class="nav-number"></span> <span class="nav-text">我可是黑客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#光阴似箭"><span class="nav-number"></span> <span class="nav-text">光阴似箭</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扫扫出奇迹"><span class="nav-number"></span> <span class="nav-text">扫扫出奇迹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#杰斯的魔法"><span class="nav-number"></span> <span class="nav-text">杰斯的魔法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#百变flag"><span class="nav-number"></span> <span class="nav-text">百变flag</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -744,7 +779,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">4.0k</span>
+    <span title="Site words total count">3.9k</span>
   
 </div>
 
@@ -757,7 +792,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 
 
@@ -863,13 +898,6 @@
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
