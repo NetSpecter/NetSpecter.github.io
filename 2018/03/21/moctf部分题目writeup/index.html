@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="CTF," />
 
 
 
@@ -79,14 +79,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="guestbook">
-<meta property="og:url" content="http://qxian.top/guestbook/index.html">
+<meta name="description" content="moctf是理工和集大的大佬们搭建的平台，网址是http://www.moctf.com/。喜欢CTF的朋友可以来水一水，下面是一些我做出来的题目的writeup。 ###MISC### ##捉迷藏##题目给了一个zhuomicang.zip的压缩包，解压得到flag.txt和2.jpg。果断打开flag.txt，里面的内容是：12看这架势应该是base64,拿去在线网站解一下，网址为：http:">
+<meta name="keywords" content="CTF">
+<meta property="og:type" content="article">
+<meta property="og:title" content="moctf部分题目writeup">
+<meta property="og:url" content="http://qxian.top/2018/03/21/moctf部分题目writeup/index.html">
 <meta property="og:site_name" content="NetSpecter的博客">
+<meta property="og:description" content="moctf是理工和集大的大佬们搭建的平台，网址是http://www.moctf.com/。喜欢CTF的朋友可以来水一水，下面是一些我做出来的题目的writeup。 ###MISC### ##捉迷藏##题目给了一个zhuomicang.zip的压缩包，解压得到flag.txt和2.jpg。果断打开flag.txt，里面的内容是：12看这架势应该是base64,拿去在线网站解一下，网址为：http:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-14T16:19:07.806Z">
+<meta property="og:image" content="http://qxian.top/2018/03/21/moctf部分题目writeup/output.jpeg">
+<meta property="og:updated_time" content="2018-03-21T05:47:26.156Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="guestbook">
+<meta name="twitter:title" content="moctf部分题目writeup">
+<meta name="twitter:description" content="moctf是理工和集大的大佬们搭建的平台，网址是http://www.moctf.com/。喜欢CTF的朋友可以来水一水，下面是一些我做出来的题目的writeup。 ###MISC### ##捉迷藏##题目给了一个zhuomicang.zip的压缩包，解压得到flag.txt和2.jpg。果断打开flag.txt，里面的内容是：12看这架势应该是base64,拿去在线网站解一下，网址为：http:">
+<meta name="twitter:image" content="http://qxian.top/2018/03/21/moctf部分题目writeup/output.jpeg">
 
 
 
@@ -116,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://qxian.top/guestbook/"/>
+  <link rel="canonical" href="http://qxian.top/2018/03/21/moctf部分题目writeup/"/>
 
 
 
 
 
-  <title>guestbook | NetSpecter的博客</title>
+  <title>moctf部分题目writeup | NetSpecter的博客</title>
   
 
 
@@ -291,34 +297,244 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://qxian.top/2018/03/21/moctf部分题目writeup/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="NetSpecter">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/275381.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NetSpecter的博客">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">guestbook</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="ds-recent-visitors" data-num-items="28" data-avatar-size="42" id="ds-recent-visitors"></div>
-
+          <h1 class="post-title" itemprop="name headline">moctf部分题目writeup</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-21T12:11:38+08:00">
+                2018-03-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/21/moctf部分题目writeup/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/21/moctf部分题目writeup/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/03/21/moctf部分题目writeup/" class="leancloud_visitors" data-flag-title="moctf部分题目writeup">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  705
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <pre><code>moctf是理工和集大的大佬们搭建的平台，网址是http://www.moctf.com/。喜欢CTF的朋友可以来水一水，下面是一些我做出来的题目的writeup。
+</code></pre><p>###MISC###</p>
+<p>##捉迷藏##<br>题目给了一个zhuomicang.zip的压缩包，解压得到flag.txt和2.jpg。果断打开flag.txt，里面的内容是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">看这架势应该是base64,拿去在线网站解一下，网址为：http://www1.tc711.com/tool/BASE64.htm。解出来看起来像是flag了:</span><br><span class="line">```moctf&#123;Bu_yA0_t1_j1a0&#125;</span><br></pre></td></tr></table></figure></p>
+<p>但是仔细看，内容是不要提交，不管了先交，万一出题人想皮一下呢。交上去，报错。那只能看图片了，先用十六进制编辑器看一下，发现图片里面还有一个flag.txt。拿去kali里面binwalk一下，得到一个压缩包，解压得到flag.txt。里面是一串数字：<br><figure class="highlight plain"><figcaption><span>111 99 116 102 123 104 49 100 51 95 97 78 100 95 115 51 51 75 125```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">猜想应该是十进制转ASCII码，工具解一下，得到flag：moctf&#123;h1d3_aNd_s33K&#125;</span><br><span class="line">工具地址：链接：https://pan.baidu.com/s/1IDsoRb40Tv4TAnQxlEAOQQ 密码：kch0</span><br><span class="line"></span><br><span class="line">##我可是黑客##</span><br><span class="line">点进链接是一张图片，图片上写了审查元素，按了下F12，没有东西。好吧，保存下来，用十六进制编辑器打开，发现最后面有料：moctf&#123;e4sy_1ma9e_m1sc&#125;。</span><br><span class="line"></span><br><span class="line">##光阴似箭##</span><br><span class="line">打开链接，是一张png的动图，保存为gif。然后拿去gif分解网站分解一下得到flag：</span><br><span class="line">![flag.jpg](moctf部分题目writeup/flag.jpg)</span><br><span class="line"></span><br><span class="line">##扫扫出奇迹##</span><br><span class="line">二维码扫描工具，扫一下得到flag：moctf&#123;qr_code_1s_1n_1t&#125;</span><br><span class="line"></span><br><span class="line">##杰斯的魔法##</span><br><span class="line">打开链接，是一串js代码，document.write()方法是用来向网页输出内容的。所以，复制一下扔控制台，得到flag。</span><br><span class="line">![js.jpg](moctf部分题目writeup/js.jpg)</span><br><span class="line"></span><br><span class="line">##百变flag##</span><br><span class="line">打开链接，发现左上角有一小张图片，但是右键不能保存，返回题目链接，右键保存，得到一张f1ag.png。用十六进制编辑器查看，发现后面有一个f1ag.exe，于是拿到kali分解，提取出压缩包，里面就是f1ag.exe，但是打不开。</span><br><span class="line">这时候打开十六进制编辑器（WinHex），在最后面发现重要线索。</span><br><span class="line">![百变flag](moctf部分题目writeup/百变flag.jpg)</span><br><span class="line">图片中的数据好像被反过来了，这时候想到提示：特殊文件头+简单字符串编程，应该就是要把数据反回来，再加上文件头。</span><br><span class="line">python启动</span><br><span class="line">```inputFile = open(&apos;f1ag.exe&apos;, &apos;rb&apos;).read()</span><br><span class="line">output = inputFile[::-1]</span><br><span class="line">outputFile = open(&apos;output&apos;, &apos;wb&apos;)</span><br><span class="line">outputFile.write(output)</span><br></pre></td></tr></table></figure></p>
+<p>运行后得到output文件，用WinHex查看发现已经反回来了，而且文件头已经有了：FFD8FFE1，是JPEG的文件格式，所以加上.jpeg后缀就得到flag了。<br><img src="/2018/03/21/moctf部分题目writeup/output.jpeg" alt="output.jpeg"></p>
+
       
     </div>
     
     
     
+
+	
+      <div>
+        
+    <div style="text-align:center;color: #ccc;font-size:14px;">
+        ------ 本文结束<i class="fa fa-paw"></i>感谢您的阅读 ------</div>
+    
+      </div>
+    
+	
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/微信.jpg" alt="NetSpecter 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/支付宝.jpg" alt="NetSpecter 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    NetSpecter
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://qxian.top/2018/03/21/moctf部分题目writeup/" title="moctf部分题目writeup">http://qxian.top/2018/03/21/moctf部分题目writeup/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CTF/" rel="tag"># CTF</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/19/华为入门之HCNA实验/" rel="next" title="华为入门之HCNA实验">
+                <i class="fa fa-chevron-left"></i> 华为入门之HCNA实验
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
