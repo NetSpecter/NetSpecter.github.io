@@ -91,7 +91,9 @@
 <meta property="og:image" content="http://qxian.top/2018/03/21/moctf部分题目writeup/js.jpg">
 <meta property="og:image" content="http://qxian.top/2018/03/21/moctf部分题目writeup/百变flag.jpg">
 <meta property="og:image" content="http://qxian.top/2018/03/21/moctf部分题目writeup/output.jpeg">
-<meta property="og:updated_time" content="2018-03-21T06:33:55.151Z">
+<meta property="og:image" content="http://qxian.top/2018/03/21/moctf部分题目writeup/meimei.jpg">
+<meta property="og:image" content="http://qxian.top/2018/03/21/moctf部分题目writeup/pixel.jpg">
+<meta property="og:updated_time" content="2018-03-22T09:57:06.497Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="moctf部分题目writeup">
 <meta name="twitter:description" content="moctf是理工和集大的大佬们搭建的平台，下面是一些我做出来的题目的writeup。 题目链接 MISC捉迷藏题目给了一个zhuomicang.zip的压缩包，解压得到flag.txt和2.jpg。果断打开flag.txt，里面的内容是：1bW9jdGZ7QnVfeUEwX3QxX2oxYTB9 看这架势应该是base64,拿去在线网站解一下，网址为：http://www1.tc711.com/t">
@@ -394,7 +396,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  821
+                  1,505
                 </span>
               
 
@@ -434,6 +436,11 @@
 <h2 id="歌曲"><a href="#歌曲" class="headerlink" title="歌曲"></a>歌曲</h2><p>下载压缩包，解压得到apple.mp3和apple.png。图片中间藏着一个二维码，扫描出来是一串Unicode编码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\u7f8a\u7531\u5927\u4e95\u592b\u5927\u4eba\u738b\u4e2d\u5de5</span><br></pre></td></tr></table></figure></p>
 <p>拿去在线网站解一下：<br><a href="http://tool.chinaz.com/tools/unicode.aspx" target="_blank" rel="noopener">Unicode编码转换</a><br>得到一串中文：羊由大井夫大人王中工，很明显是当铺密码，解出来是：9158753624。<br>然后是一个MP3文件，猜测应该是一个MP3隐写，前面那串数字是密码，用MP3stego试一下：在Decode.exe目录下，运行cmd，输入Decode.exe -X apple.mp3 -P 9158753624（MP3文件放到该目录）。运行后生成一个apple.mp3.txt的文件，文件内容为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Q1RGe3hpYW9fcGluZ19ndW99</span><br></pre></td></tr></table></figure></p>
 <p>拿去base64一下，得到：CTF{xiao_ping_guo}</p>
+<h2 id="机密压缩包"><a href="#机密压缩包" class="headerlink" title="机密压缩包"></a>机密压缩包</h2><p>这题刚开始没什么头绪，试了下伪加密发现不对，百度了一波，发现一篇类似的文章安利一下：<br><a href="https://www.cnblogs.com/WangAoBo/p/6951160.html" target="_blank" rel="noopener">crc32碰撞</a><br>这是关于CRC32碰撞的一道bugku上的题目的writeup，当压缩内容较小时，可以利用里面文件的CRC校验值进行碰撞攻击，下面是解题脚本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python</span><br><span class="line"># -*- coding: UTF-8 -*-</span><br><span class="line"></span><br><span class="line">import binascii</span><br><span class="line">import time</span><br><span class="line">import winsound</span><br><span class="line"></span><br><span class="line">startTime = time.time() </span><br><span class="line">keys = [int(&quot;0x5A52D4F4&quot;,16),</span><br><span class="line">        int(&quot;0x5FA0F28B&quot;,16),</span><br><span class="line">		int(&quot;0xF899F771&quot;,16),</span><br><span class="line">		int(&quot;0x957AF788&quot;,16),</span><br><span class="line">		int(&quot;0xF8208C12&quot;,16)]</span><br><span class="line"></span><br><span class="line">myRange = [&apos; &apos;,  &apos;!&apos;,  &apos;&quot;&apos;,  &apos;#&apos;,  &apos;$&apos;,  &apos;%&apos;,  &apos;&amp;&apos;,  &apos;\&apos;&apos;,  &apos;(&apos;,  &apos;)&apos;,  &apos;*&apos;,  &apos;+&apos;,  &apos;,&apos;,  &apos;-&apos;,  &apos;.&apos;,  &apos;/&apos;,  &apos;0&apos;,  &apos;1&apos;,  &apos;2&apos;,  &apos;3&apos;,  &apos;4&apos;,  &apos;5&apos;,  &apos;6&apos;,  &apos;7&apos;,  &apos;8&apos;,  &apos;9&apos;,  &apos;:&apos;,  &apos;;&apos;,  &apos;&lt;&apos;,  &apos;=&apos;,  &apos;&gt;&apos;,  &apos;?&apos;,  &apos;@&apos;,  &apos;A&apos;,  &apos;B&apos;,  &apos;C&apos;,  &apos;D&apos;,  &apos;E&apos;,  &apos;F&apos;,  &apos;G&apos;,  &apos;H&apos;,  &apos;I&apos;,  &apos;J&apos;,  &apos;K&apos;,  &apos;L&apos;,  &apos;M&apos;,  &apos;N&apos;,  &apos;O&apos;,  &apos;P&apos;,  &apos;Q&apos;,  &apos;R&apos;,  &apos;S&apos;,  &apos;T&apos;,  &apos;U&apos;,  &apos;V&apos;,  &apos;W&apos;,  &apos;X&apos;,  &apos;Y&apos;,  &apos;Z&apos;,  &apos;[&apos;,  &apos;\\&apos;,  &apos;]&apos;,  &apos;^&apos;,  &apos;_&apos;,  &apos;`&apos;,  &apos;a&apos;,  &apos;b&apos;,  &apos;c&apos;,  &apos;d&apos;,  &apos;e&apos;,  &apos;f&apos;,  &apos;g&apos;,  &apos;h&apos;,  &apos;i&apos;,  &apos;j&apos;,  &apos;k&apos;,  &apos;l&apos;,  &apos;m&apos;,  &apos;n&apos;,  &apos;o&apos;,  &apos;p&apos;,  &apos;q&apos;,  &apos;r&apos;,  &apos;s&apos;,  &apos;t&apos;,  &apos;u&apos;,  &apos;v&apos;,  &apos;w&apos;,  &apos;x&apos;,  &apos;y&apos;,  &apos;z&apos;,  &apos;&#123;&apos;,  &apos;|&apos;,  &apos;&#125;&apos;,  &apos;~&apos;]</span><br><span class="line"></span><br><span class="line">RESULT = &#123;&#125; </span><br><span class="line"></span><br><span class="line">def getCRC32(str):</span><br><span class="line">    &apos;&apos;&apos;</span><br><span class="line">    计算CRC32</span><br><span class="line">    &apos;&apos;&apos;</span><br><span class="line">    return (binascii.crc32(str) &amp; 0xffffffff)</span><br><span class="line"></span><br><span class="line">def checkSuccess(keys, mycrc32, words):</span><br><span class="line">    &apos;&apos;&apos;</span><br><span class="line">    检测是否成功匹配</span><br><span class="line">    参数 :</span><br><span class="line">        keys : 所有需要爆破的CRC32值</span><br><span class="line">        mycrc32 : 某次计算得到的明文(words)的CRC32</span><br><span class="line">        words : 明文</span><br><span class="line">    &apos;&apos;&apos;</span><br><span class="line">    global RESULT</span><br><span class="line">    for key in keys:</span><br><span class="line">        if key == mycrc32:</span><br><span class="line">            RESULT[keys.index(key)] = words</span><br><span class="line"></span><br><span class="line">words = &quot;&quot;</span><br><span class="line"></span><br><span class="line">counter = 0 </span><br><span class="line">oldTime = time.clock()</span><br><span class="line"></span><br><span class="line">for i in myRange:</span><br><span class="line">    nowTime = time.clock()</span><br><span class="line">    print &quot;Trying : &quot; + words + &quot;\t&quot; + &quot;Speed : &quot; + str(counter / (nowTime - oldTime)) + &quot; / s&quot; + &quot;\t&quot; + &quot;Result : &quot; + str(RESULT) # 输出日志</span><br><span class="line">    oldTime = nowTime</span><br><span class="line">    for j in myRange:</span><br><span class="line">        for k in myRange:</span><br><span class="line">            words = i + j + k </span><br><span class="line">            counter += 1</span><br><span class="line">            myCRC32 = getCRC32(words) #</span><br><span class="line">            checkSuccess(keys, myCRC32, words) </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">endTime = time.time()</span><br><span class="line"></span><br><span class="line">print &quot;Result : &quot; + str(RESULT) </span><br><span class="line"></span><br><span class="line">print &quot;Cost : &quot; + str(endTime-startTime) + &quot; s&quot;</span><br></pre></td></tr></table></figure></p>
+<p>运行得到：ctf{qwasdzxcqa}</p>
+<h2 id="假装安全"><a href="#假装安全" class="headerlink" title="假装安全"></a>假装安全</h2><p>50分的题目，应该是水题。jpg图片一般先用stegsolve和binwalk试一下，先用binwalk跑一下，得到一个压缩包，里面就是flag.txt。打开看到一串字符串，栅栏加密，密码为2。<br><code>mcfCrflyS1eot{@eul_ld}</code></p>
+<h2 id="女神的告白"><a href="#女神的告白" class="headerlink" title="女神的告白"></a>女神的告白</h2><p>题目已经说的很清楚了，暴力破解，前六位为：meimei，用木头字典生成工具写个字典，跑一下得到密码：<br><img src="/2018/03/21/moctf部分题目writeup/meimei.jpg" alt="meimei.jpg"><br>解压得到flag：moctf{Y0u_@re_A_g00d_man}</p>
+<h2 id="蒙娜丽萨的微笑"><a href="#蒙娜丽萨的微笑" class="headerlink" title="蒙娜丽萨的微笑"></a>蒙娜丽萨的微笑</h2><p>提示说注意图片名字，有道了一下发现是像素的意思，想到图片隐写，老规矩，binwalk先跑一下（比较快），得到一个压缩包，但是没有密码。说明密码还在这张图片里面。提示二说base64，看来密码是base64得到的，但是确不知道从何下手。接下来对图片进行各种尝试，最后试出来：修改图片宽度。<br><img src="/2018/03/21/moctf部分题目writeup/pixel.jpg" alt="pixel.jpg"><br>图片宽度就是图中红线处，第二行前4字节是长度，接着4字节是宽度。改完之后，发现图片下面有一串字符串，拿去base64，得到密码是：simleisintering。解压得到flag：moctf{Int3resting_piXe1}</p>
 <p>未完待续。。。</p>
 
       
@@ -749,7 +756,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#MISC"><span class="nav-number">1.</span> <span class="nav-text">MISC</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#捉迷藏"><span class="nav-number"></span> <span class="nav-text">捉迷藏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我可是黑客"><span class="nav-number"></span> <span class="nav-text">我可是黑客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#光阴似箭"><span class="nav-number"></span> <span class="nav-text">光阴似箭</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扫扫出奇迹"><span class="nav-number"></span> <span class="nav-text">扫扫出奇迹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#杰斯的魔法"><span class="nav-number"></span> <span class="nav-text">杰斯的魔法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#百变flag"><span class="nav-number"></span> <span class="nav-text">百变flag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#歌曲"><span class="nav-number"></span> <span class="nav-text">歌曲</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#MISC"><span class="nav-number">1.</span> <span class="nav-text">MISC</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#捉迷藏"><span class="nav-number"></span> <span class="nav-text">捉迷藏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我可是黑客"><span class="nav-number"></span> <span class="nav-text">我可是黑客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#光阴似箭"><span class="nav-number"></span> <span class="nav-text">光阴似箭</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扫扫出奇迹"><span class="nav-number"></span> <span class="nav-text">扫扫出奇迹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#杰斯的魔法"><span class="nav-number"></span> <span class="nav-text">杰斯的魔法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#百变flag"><span class="nav-number"></span> <span class="nav-text">百变flag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#歌曲"><span class="nav-number"></span> <span class="nav-text">歌曲</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机密压缩包"><span class="nav-number"></span> <span class="nav-text">机密压缩包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#假装安全"><span class="nav-number"></span> <span class="nav-text">假装安全</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#女神的告白"><span class="nav-number"></span> <span class="nav-text">女神的告白</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#蒙娜丽萨的微笑"><span class="nav-number"></span> <span class="nav-text">蒙娜丽萨的微笑</span></a></div>
             
 
           </div>
@@ -783,7 +790,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">4.1k</span>
+    <span title="Site words total count">4.8k</span>
   
 </div>
 
@@ -1406,6 +1413,21 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
   
