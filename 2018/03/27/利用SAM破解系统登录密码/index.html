@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="CTF," />
 
 
 
@@ -79,17 +79,25 @@
 
 
 
-<meta name="description" content="网络硬件&amp;安全学习笔记">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://qxian.top/about/index.html">
+<meta name="description" content="今天的网络攻防课讲了一个有意思的东西，随手来测试一下。 SAM(Security Account Manager，简称SAM)是windows的口令文件，存储了系统账户的信息(所有组、帐户的信息，包括密码的HASH、帐户的SID等)，我们可以根据获取的SAM文件爆出终端所有的账户和密码。 windows的SAM文件放在C:\Windows\System32\config里面，但是这个路径下的文件在">
+<meta name="keywords" content="CTF">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用SAM破解系统登录密码">
+<meta property="og:url" content="http://qxian.top/2018/03/27/利用SAM破解系统登录密码/index.html">
 <meta property="og:site_name" content="NetSpecter的博客">
-<meta property="og:description" content="网络硬件&amp;安全学习笔记">
+<meta property="og:description" content="今天的网络攻防课讲了一个有意思的东西，随手来测试一下。 SAM(Security Account Manager，简称SAM)是windows的口令文件，存储了系统账户的信息(所有组、帐户的信息，包括密码的HASH、帐户的SID等)，我们可以根据获取的SAM文件爆出终端所有的账户和密码。 windows的SAM文件放在C:\Windows\System32\config里面，但是这个路径下的文件在">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-13T12:46:49.820Z">
+<meta property="og:image" content="http://qxian.top/2018/03/27/利用SAM破解系统登录密码/ciji.jpg">
+<meta property="og:image" content="http://qxian.top/2018/03/27/利用SAM破解系统登录密码/hash.JPG">
+<meta property="og:image" content="http://qxian.top/2018/03/27/利用SAM破解系统登录密码/NT.png">
+<meta property="og:image" content="http://qxian.top/2018/03/27/利用SAM破解系统登录密码/niubi.jpg">
+<meta property="og:image" content="http://qxian.top/2018/03/27/利用SAM破解系统登录密码/jieguo.JPG">
+<meta property="og:image" content="http://qxian.top/2018/03/27/利用SAM破解系统登录密码/kedaya.jpg">
+<meta property="og:updated_time" content="2018-03-27T10:00:52.254Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="网络硬件&amp;安全学习笔记">
+<meta name="twitter:title" content="利用SAM破解系统登录密码">
+<meta name="twitter:description" content="今天的网络攻防课讲了一个有意思的东西，随手来测试一下。 SAM(Security Account Manager，简称SAM)是windows的口令文件，存储了系统账户的信息(所有组、帐户的信息，包括密码的HASH、帐户的SID等)，我们可以根据获取的SAM文件爆出终端所有的账户和密码。 windows的SAM文件放在C:\Windows\System32\config里面，但是这个路径下的文件在">
+<meta name="twitter:image" content="http://qxian.top/2018/03/27/利用SAM破解系统登录密码/ciji.jpg">
 
 
 
@@ -119,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://qxian.top/about/"/>
+  <link rel="canonical" href="http://qxian.top/2018/03/27/利用SAM破解系统登录密码/"/>
 
 
 
 
 
-  <title>about | NetSpecter的博客</title>
+  <title>利用SAM破解系统登录密码 | NetSpecter的博客</title>
   
 
 
@@ -294,33 +302,245 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://qxian.top/2018/03/27/利用SAM破解系统登录密码/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="NetSpecter">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/275381.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NetSpecter的博客">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">about</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
+          <h1 class="post-title" itemprop="name headline">利用SAM破解系统登录密码</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-27T16:31:07+08:00">
+                2018-03-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-      </div>
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/27/利用SAM破解系统登录密码/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/27/利用SAM破解系统登录密码/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/03/27/利用SAM破解系统登录密码/" class="leancloud_visitors" data-flag-title="利用SAM破解系统登录密码">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  851
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <pre><code>今天的网络攻防课讲了一个有意思的东西，随手来测试一下。
+</code></pre><p>SAM(Security Account Manager，简称SAM)是windows的口令文件，存储了系统账户的信息(所有组、帐户的信息，包括密码的HASH、帐户的SID等)，我们可以根据获取的SAM文件爆出终端所有的账户和密码。<br><img src="/2018/03/27/利用SAM破解系统登录密码/ciji.jpg" alt="ciji.jpg"></p>
+<p>windows的SAM文件放在C:\Windows\System32\config里面，但是这个路径下的文件在登录进系统时被系统进程占用了，我们无法进行任何操作，所以需要从其他地方获取该文件。<br>获取的途径有两种：1、C:\Windows\Repair里面会有一个备份。2、如果备份被删掉的话，可以用进入PE系统，这时候就没有任何进程占用该文件了，可以拷出来。<br>PS：拷文件时把同目录下的SYSTEM也拷出来，后面破解要用。</p>
+<p>Windows 对同一用户口令采用两套单向散列函数进行运算，即单向LM散列算法和单向NT散列算法，两种算法的结果都保存在SAM文件中。这两种算法产生的HASH值就是我们所要利用。<br>具体原理是：两种算法根据原始密码生成散列值，我们利用掩码攻击、暴力枚举或字典攻击等方式将生成的密码进行同样算法的运算，生成的散列值与SAM文件中的散列值比对，如果一样就是正确的密码，将密码输出。</p>
+<pre><code>下面进行简单的实际操作
+</code></pre><p>这里用到的工具是：saminside，这里附上下载地址：链接：<a href="https://pan.baidu.com/s/1s0LP2IPO3LLzYPny0iQhrA" target="_blank" rel="noopener">https://pan.baidu.com/s/1s0LP2IPO3LLzYPny0iQhrA</a> 密码：4475<br>1、首先将SAM和SYSTEM文件都拷到saminside工具的Tools目录下（避免出现一些意外的错误）。<br>2、打开软件，在file框选择第二个：Import SAM Rigistry and SYSKEY File，然后选择SAM文件。<br>3、下一步会让我们选择key文件，这里解释一下该文件：Windows系统采用了更为安全的SYSKEY加密方式保护登录密码，对密码进行二次加密，使得L0phtCrack这样的逆天神器也无能为力，SYSKEY加密后会生成SYSTEM文件。讲到这里思路应该很清晰了，将之前拷贝的SYSTEM文件反向提取出key文件，然后拿key文件跑出密码。key文件的获取方式是：在Tools下有一个GetSyskey.exe程序，在该目录下打开cmd界面，输入GetSyskey.exe SYSTEM 文件名，就会输出key文件。这里我遇到一个小bug，我不管输入什么文件名，输出的文件都叫StartKey.key，我猜可能是软件的问题，不过无伤大雅。各位大黑阔们如果解决了这个问题记得在下面评论告诉我一下。<br>4、选择好文件后，要选择加密算法，看文件的HASH字段是LM还是NT，我这里是NT，所以点击工具，切换为NT算法。<br><img src="/2018/03/27/利用SAM破解系统登录密码/hash.JPG" alt="hash.JPG"><br><img src="/2018/03/27/利用SAM破解系统登录密码/NT.png" alt="NT.png"><br>5、接下来点击OPtions，选择要进行的攻击方式，这里我选择暴力破解，因为我知道自己的密码，定个范围就好了。<br><img src="/2018/03/27/利用SAM破解系统登录密码/niubi.jpg" alt="niubi.jpg"><br>6、接下来等着出结果了，密码不难的话一下子就跑出来了。<br><img src="/2018/03/27/利用SAM破解系统登录密码/jieguo.JPG" alt="jieguo.JPG"><br>感觉自己密码好危险，快去改掉！！！<br><img src="/2018/03/27/利用SAM破解系统登录密码/kedaya.jpg" alt="kedaya.jpg"><br>    有不懂得可以在下面留言，我会尽快回复的。</p>
+
       
     </div>
     
     
     
+
+	
+      <div>
+        
+    <div style="text-align:center;color: #ccc;font-size:14px;">
+        ------ 本文结束<i class="fa fa-paw"></i>感谢您的阅读 ------</div>
+    
+      </div>
+    
+	
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/微信.jpg" alt="NetSpecter 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/支付宝.jpg" alt="NetSpecter 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    NetSpecter
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://qxian.top/2018/03/27/利用SAM破解系统登录密码/" title="利用SAM破解系统登录密码">http://qxian.top/2018/03/27/利用SAM破解系统登录密码/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CTF/" rel="tag"># CTF</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/21/moctf部分题目writeup/" rel="next" title="moctf部分题目writeup">
+                <i class="fa fa-chevron-left"></i> moctf部分题目writeup
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
