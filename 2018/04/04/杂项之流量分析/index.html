@@ -88,7 +88,11 @@
 <meta property="og:description" content="这两天做了几题流量分析，这脑洞大的，让人头皮发麻。。。 这次的题目出自蓝鲸安全，是一个很棒的平台，有题库有视频教程，值得我安利一下。题目链接：http://whalectf.xin/challenges视频链接：http://www.whaledu.com/course/explore/NS01 流量分析下载一个抓包文件，点击统计选项的协议分级，可以看到HTTP的流量占了很多，其中传输了图片、媒体">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://qxian.top/2018/04/04/杂项之流量分析/fenji.jpg">
-<meta property="og:updated_time" content="2018-04-04T03:14:25.748Z">
+<meta property="og:image" content="http://qxian.top/2018/04/04/杂项之流量分析/xinxi.JPG">
+<meta property="og:image" content="http://qxian.top/2018/04/04/杂项之流量分析/jiemi.JPG">
+<meta property="og:image" content="http://qxian.top/2018/04/04/杂项之流量分析/tcp.JPG">
+<meta property="og:image" content="http://qxian.top/2018/04/04/杂项之流量分析/hex.JPG">
+<meta property="og:updated_time" content="2018-04-04T08:17:52.465Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="杂项之流量分析">
 <meta name="twitter:description" content="这两天做了几题流量分析，这脑洞大的，让人头皮发麻。。。 这次的题目出自蓝鲸安全，是一个很棒的平台，有题库有视频教程，值得我安利一下。题目链接：http://whalectf.xin/challenges视频链接：http://www.whaledu.com/course/explore/NS01 流量分析下载一个抓包文件，点击统计选项的协议分级，可以看到HTTP的流量占了很多，其中传输了图片、媒体">
@@ -391,7 +395,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  366
+                  763
                 </span>
               
 
@@ -419,6 +423,8 @@
         <pre><code>这两天做了几题流量分析，这脑洞大的，让人头皮发麻。。。
 </code></pre><p>这次的题目出自蓝鲸安全，是一个很棒的平台，有题库有视频教程，值得我安利一下。<br>题目链接：<a href="http://whalectf.xin/challenges" target="_blank" rel="noopener">http://whalectf.xin/challenges</a><br>视频链接：<a href="http://www.whaledu.com/course/explore/NS01" target="_blank" rel="noopener">http://www.whaledu.com/course/explore/NS01</a></p>
 <h3 id="流量分析"><a href="#流量分析" class="headerlink" title="流量分析"></a>流量分析</h3><p>下载一个抓包文件，点击统计选项的协议分级，可以看到HTTP的流量占了很多，其中传输了图片、媒体文件和gif动图等。<br><img src="/2018/04/04/杂项之流量分析/fenji.jpg" alt="fenji.jpg"><br>根据直觉，给了这么多图片，所以东西应该不会藏在图片中；再者还有，题目给了一个压缩包，解压出来是抓包文件，但是文件很小，没必要压缩，而且其他题目好几兆的文件都没压缩。根据这两个猜想，觉得压缩包有点猫腻，浏览一遍HTTP数据后，发现最后面有一个压缩包。bingo，选择http的数据部分，导出分组字节流，保存为.zip文件。<br>压缩包解压出来发现是一个空word，本以为是隐藏了字符，看了一下发现确实什么都没有。但是文档名字是“情报”，所以我觉得东西肯定在这里，这时候脑洞大开，打开详细信息看一下，发现flag在备注里面，这可真是太秀了！！！还好最近买了点核桃补补脑子，不然都跟不上节奏了。</p>
+<h3 id="A记录"><a href="#A记录" class="headerlink" title="A记录"></a>A记录</h3><p>打开抓包文件，提示捕获文件在中间被剪断，剩下的包都是wifi协议的包。搜索EAPol，发现有3个包，拿去工具上解出密码，用kali自带的Aircrack-ng查看一下信息。<br><img src="/2018/04/04/杂项之流量分析/xinxi.JPG" alt="xinxi.JPG"><br>加密方式为WAP，ESSID为0719。<br>接下来爆破密码，用字典工具生成一个字典，跑出来密码为8个8，命令是：aircrack-ng shipin.cap -w passwd.txt。<br>接下来用获得的密码和ESSID来还原被加密的数据包，命令是：airdecap-ng shipin.cap -e 0719 -p 88888888.<br>命令执行完成后，有16个包被解密出来，这就是原始的数据包。<br><img src="/2018/04/04/杂项之流量分析/jiemi.JPG" alt="jiemi.JPG"><br>题目说第一条A记录，那就过滤出DNS包，第二个包就是A记录的包，追踪UDP流，获得flag。</p>
+<h3 id="Password"><a href="#Password" class="headerlink" title="Password"></a>Password</h3><p>打开文件，有95个TCP文件，其中包含PSH和ACK位置1的包，PSH功能是快速推送数据至应用层，所以这题的密码应该是用TCP的PSH位来传输的。追踪TCP流，获得关键信息。<br><img src="/2018/04/04/杂项之流量分析/tcp.JPG" alt="tcp.JPG"><br>这里有密码输入界面，不过下面提示密码错误。。。。瞬间尬住<em>-</em>，但是信息又只可能在这里，所以继续对这个流进行操作，这里的数据是编码成ASCII码显示，而密码中包含好多个点，个人觉得有猫腻，用十六进制打开，发现点对应的十六进制居然是7F。<br><img src="/2018/04/04/杂项之流量分析/hex.JPG" alt="hex.JPG"><br>讲道理应该没那么大才对，算了一下7F是127，看了下ASCII表，127是DEL，就是删除键，果然，将点换成删除，输入，正确！</p>
 
       
     </div>
@@ -733,7 +739,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#流量分析"><span class="nav-number">1.</span> <span class="nav-text">流量分析</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#流量分析"><span class="nav-number">1.</span> <span class="nav-text">流量分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A记录"><span class="nav-number">2.</span> <span class="nav-text">A记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Password"><span class="nav-number">3.</span> <span class="nav-text">Password</span></a></li></ol></div>
             
 
           </div>
@@ -767,7 +773,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">6.1k</span>
+    <span title="Site words total count">6.5k</span>
   
 </div>
 
