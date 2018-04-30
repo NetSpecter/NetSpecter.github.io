@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="CTF," />
 
 
 
@@ -79,16 +79,31 @@
 
 
 
-<meta name="description" content="网络硬件&amp;安全学习笔记">
-<meta property="og:type" content="website">
-<meta property="og:title" content="NetSpecter的博客">
-<meta property="og:url" content="http://qxian.top/tags/CTF/index.html">
+<meta name="description" content="干了两天破题，真切体会了web狗的无奈，闲来无聊只能去做杂项，看看流量分析。还有剧毒的华为云，无力吐槽。 WEBEASYWEB先注册账号，进入后提示只有admin才能得到flag，F12打开源码，发现password字段有默认值，删除默认值，账号admin，密码为空，进入页面，得到flag。 MISC验证码进入链接，输入队伍token，再输入一个验证码，得到flag。 寻找入侵者根据题目提示，打开">
+<meta name="keywords" content="CTF">
+<meta property="og:type" content="article">
+<meta property="og:title" content="全国大学生信息安全竞赛部分writeup">
+<meta property="og:url" content="http://qxian.top/2018/05/01/全国大学生信息安全竞赛部分writeup/index.html">
 <meta property="og:site_name" content="NetSpecter的博客">
-<meta property="og:description" content="网络硬件&amp;安全学习笔记">
+<meta property="og:description" content="干了两天破题，真切体会了web狗的无奈，闲来无聊只能去做杂项，看看流量分析。还有剧毒的华为云，无力吐槽。 WEBEASYWEB先注册账号，进入后提示只有admin才能得到flag，F12打开源码，发现password字段有默认值，删除默认值，账号admin，密码为空，进入页面，得到flag。 MISC验证码进入链接，输入队伍token，再输入一个验证码，得到flag。 寻找入侵者根据题目提示，打开">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://qxian.top/2018/05/01/全国大学生信息安全竞赛部分writeup/web1.png">
+<meta property="og:image" content="http://qxian.top/2018/05/01/全国大学生信息安全竞赛部分writeup/web2.png">
+<meta property="og:image" content="http://qxian.top/2018/05/01/全国大学生信息安全竞赛部分writeup/misc.png">
+<meta property="og:image" content="http://qxian.top/2018/05/01/全国大学生信息安全竞赛部分writeup/misc2.png">
+<meta property="og:image" content="http://qxian.top/2018/05/01/全国大学生信息安全竞赛部分writeup/misc3.png">
+<meta property="og:image" content="http://qxian.top/2018/05/01/全国大学生信息安全竞赛部分writeup/misc4.png">
+<meta property="og:image" content="http://qxian.top/2018/05/01/全国大学生信息安全竞赛部分writeup/misc5.png">
+<meta property="og:image" content="http://qxian.top/2018/05/01/全国大学生信息安全竞赛部分writeup/misc6.png">
+<meta property="og:image" content="http://qxian.top/2018/05/01/全国大学生信息安全竞赛部分writeup/misc7.png">
+<meta property="og:image" content="http://qxian.top/2018/05/01/全国大学生信息安全竞赛部分writeup/misc8.png">
+<meta property="og:image" content="http://qxian.top/2018/05/01/全国大学生信息安全竞赛部分writeup/crypto1.png">
+<meta property="og:image" content="http://qxian.top/2018/05/01/全国大学生信息安全竞赛部分writeup/crypto2.png">
+<meta property="og:updated_time" content="2018-04-30T18:06:50.093Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NetSpecter的博客">
-<meta name="twitter:description" content="网络硬件&amp;安全学习笔记">
+<meta name="twitter:title" content="全国大学生信息安全竞赛部分writeup">
+<meta name="twitter:description" content="干了两天破题，真切体会了web狗的无奈，闲来无聊只能去做杂项，看看流量分析。还有剧毒的华为云，无力吐槽。 WEBEASYWEB先注册账号，进入后提示只有admin才能得到flag，F12打开源码，发现password字段有默认值，删除默认值，账号admin，密码为空，进入页面，得到flag。 MISC验证码进入链接，输入队伍token，再输入一个验证码，得到flag。 寻找入侵者根据题目提示，打开">
+<meta name="twitter:image" content="http://qxian.top/2018/05/01/全国大学生信息安全竞赛部分writeup/web1.png">
 
 
 
@@ -118,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://qxian.top/tags/CTF/"/>
+  <link rel="canonical" href="http://qxian.top/2018/05/01/全国大学生信息安全竞赛部分writeup/"/>
 
 
 
 
 
-  <title>标签: CTF | NetSpecter的博客</title>
+  <title>全国大学生信息安全竞赛部分writeup | NetSpecter的博客</title>
   
 
 
@@ -143,7 +158,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -291,138 +306,248 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>CTF<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://qxian.top/2018/05/01/全国大学生信息安全竞赛部分writeup/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="NetSpecter">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/275381.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NetSpecter的博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/05/01/全国大学生信息安全竞赛部分writeup/" itemprop="url">
-              
-                <span itemprop="name">全国大学生信息安全竞赛部分writeup</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">全国大学生信息安全竞赛部分writeup</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-01T01:15:37+08:00"
-              content="2018-05-01" >
-          05-01
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-01T01:15:37+08:00">
+                2018-05-01
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/01/全国大学生信息安全竞赛部分writeup/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/01/全国大学生信息安全竞赛部分writeup/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/05/01/全国大学生信息安全竞赛部分writeup/" class="leancloud_visitors" data-flag-title="全国大学生信息安全竞赛部分writeup">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  753
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/04/杂项之流量分析/" itemprop="url">
-              
-                <span itemprop="name">杂项之流量分析</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-04T10:51:20+08:00"
-              content="2018-04-04" >
-          04-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/27/利用SAM破解系统登录密码/" itemprop="url">
-              
-                <span itemprop="name">利用SAM破解系统登录密码</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-27T16:31:07+08:00"
-              content="2018-03-27" >
-          03-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/21/moctf部分题目writeup/" itemprop="url">
-              
-                <span itemprop="name">moctf部分题目writeup</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-21T12:11:38+08:00"
-              content="2018-03-21" >
-          03-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <pre><code>干了两天破题，真切体会了web狗的无奈，闲来无聊只能去做杂项，看看流量分析。还有剧毒的华为云，无力吐槽。
+</code></pre><h2 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h2><h3 id="EASYWEB"><a href="#EASYWEB" class="headerlink" title="EASYWEB"></a>EASYWEB</h3><p>先注册账号，进入后提示只有admin才能得到flag，F12打开源码，发现password字段有默认值，删除默认值，账号admin，密码为空，进入页面，得到flag。<br><img src="/2018/05/01/全国大学生信息安全竞赛部分writeup/web1.png" alt="web1"><br><img src="/2018/05/01/全国大学生信息安全竞赛部分writeup/web2.png" alt="web2"></p>
+<h2 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h2><h3 id="验证码"><a href="#验证码" class="headerlink" title="验证码"></a>验证码</h3><p>进入链接，输入队伍token，再输入一个验证码，得到flag。</p>
+<h3 id="寻找入侵者"><a href="#寻找入侵者" class="headerlink" title="寻找入侵者"></a>寻找入侵者</h3><p><img src="/2018/05/01/全国大学生信息安全竞赛部分writeup/misc.png" alt="misc"><br>根据题目提示，打开attack.pcapng，选择统计的已解析地址，选择出所有MAC地址，复制出来，用脚本将后面的设备名删除，然后作为密码字典，拿到aircrack-ng上爆密码。得到密码：<br><img src="/2018/05/01/全国大学生信息安全竞赛部分writeup/misc2.png" alt="misc2"><br>题目说让我们解开数据包，而且握手包特别大，所以肯定隐藏了什么信息，利用aircrack-ng自带的解密工具，解出被加密的压缩包。<br><img src="/2018/05/01/全国大学生信息安全竞赛部分writeup/misc3.png" alt="misc3"><br>接下来分析解密的流量包，发现有很多HTTP协议，过滤出HTTP协议，发现最后面隐藏了key.rar，搜索key.rar，得到一个链接。<br><img src="/2018/05/01/全国大学生信息安全竞赛部分writeup/misc4.png" alt="misc4"><br>双击链接可以下载一个key.rar文件，解压得到key.pcap，根据之前获得的黑客的MAC地址，过滤(规则为：wlan.sa == 获得的MAC)，得到flag。Flag为！号后面的那串字符串。<br><img src="/2018/05/01/全国大学生信息安全竞赛部分writeup/misc5.png" alt="misc5"><br>题目相关资料：<br><code>https://pan.baidu.com/s/1OTG-Cpo5ML0wThALKdBdmA 密码：38yk</code></p>
+<h3 id="PICTURE"><a href="#PICTURE" class="headerlink" title="PICTURE"></a>PICTURE</h3><p>观察图片，说是让我们展示代码，所以应该是要查看图片源码。不管怎么样，图片题一般都先拿去binwalk一下，得到两个文件，将第一个文件扔到winhex里面查看图片源码，可以看到一串base64编码。在线网站解码后应该是一个zip压缩包的源码。将4B50改成504B，发现压缩包破损，个人觉得应该是在线网站解码的格式有问题，于是自己写了一个脚本解码，果然就可以了。<br>根据提示密码在箭头的左边，各种尝试无果，搜索ZeroDivisionError报错详情。<br><img src="/2018/05/01/全国大学生信息安全竞赛部分writeup/misc6.png" alt="misc6"><br><img src="/2018/05/01/全国大学生信息安全竞赛部分writeup/misc7.png" alt="misc7"><br>尝试输入integer division or modulo by zero，发现解密出来了，得到code文件。拿到binwalk分析，发现这是一个uudecode编码，将begin和end之间的字符串复制到在线解密网站，得到flag。<br><img src="/2018/05/01/全国大学生信息安全竞赛部分writeup/misc8.png" alt="misc8"><br>在线解密网站：<code>http://web.chacuo.net/charsetuuencode</code><br>题目材料：<code>https://pan.baidu.com/s/1AWusibhPkmy1KBiFKpn3Hw 密码：rr7h</code></p>
+<h2 id="CRYPTO"><a href="#CRYPTO" class="headerlink" title="CRYPTO"></a>CRYPTO</h2><h3 id="Flag-in-your-hand"><a href="#Flag-in-your-hand" class="headerlink" title="Flag_in_your_hand"></a>Flag_in_your_hand</h3><p>在本题中通过下载得到了两个文件。打开index.Html发现他通过调用script-min.js来对输入进行操作。<br><img src="/2018/05/01/全国大学生信息安全竞赛部分writeup/crypto1.png" alt="crypto1"><br>这是就要分析script-min.js，打开script-min.js，通过对文件的分析找到了一个比较函数。<br><img src="/2018/05/01/全国大学生信息安全竞赛部分writeup/crypto2.png" alt="crypto2"><br>A= 100, 116, 101, 48, 118, 104, 102, 120, 117, 108, 119, 124;通过ascii表转换a=dte0vhfxulw|,发现最后这个符号应该不太对，继续进行凯撒发现将a-3的ascii进行匹配，得出s=aqb-security。将aqb-security作为flag进行提交，通过。<br>题目材料：<code>https://pan.baidu.com/s/1BCH3UAmddU0uVJ_BNIQ9cw 密码：a000</code></p>
 
       
     </div>
+    
+    
+    
 
+	
+      <div>
+        
+    <div style="text-align:center;color: #ccc;font-size:14px;">
+        ------ 本文结束<i class="fa fa-paw"></i>感谢您的阅读 ------</div>
+    
+      </div>
+    
+	
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/微信.jpg" alt="NetSpecter 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/支付宝.jpg" alt="NetSpecter 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    NetSpecter
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://qxian.top/2018/05/01/全国大学生信息安全竞赛部分writeup/" title="全国大学生信息安全竞赛部分writeup">http://qxian.top/2018/05/01/全国大学生信息安全竞赛部分writeup/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CTF/" rel="tag"># CTF</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/04/杂项之流量分析/" rel="next" title="杂项之流量分析">
+                <i class="fa fa-chevron-left"></i> 杂项之流量分析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -430,6 +555,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -450,8 +582,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -601,6 +742,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#WEB"><span class="nav-number">1.</span> <span class="nav-text">WEB</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#EASYWEB"><span class="nav-number">1.1.</span> <span class="nav-text">EASYWEB</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MISC"><span class="nav-number">2.</span> <span class="nav-text">MISC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#验证码"><span class="nav-number">2.1.</span> <span class="nav-text">验证码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#寻找入侵者"><span class="nav-number">2.2.</span> <span class="nav-text">寻找入侵者</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PICTURE"><span class="nav-number">2.3.</span> <span class="nav-text">PICTURE</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CRYPTO"><span class="nav-number">3.</span> <span class="nav-text">CRYPTO</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Flag-in-your-hand"><span class="nav-number">3.1.</span> <span class="nav-text">Flag_in_your_hand</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -749,6 +906,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
