@@ -79,25 +79,26 @@
 
 
 
-<meta name="description" content="moctf是理工和集大的大佬们搭建的平台，下面是一些我做出来的题目的writeup。 题目链接 MISC捉迷藏题目给了一个zhuomicang.zip的压缩包，解压得到flag.txt和2.jpg。果断打开flag.txt，里面的内容是：1bW9jdGZ7QnVfeUEwX3QxX2oxYTB9 看这架势应该是base64,拿去在线网站解一下，网址为：http://www1.tc711.com/t">
+<meta name="description" content="ISCC比赛从5月1号开始，持续一个月时间，前期放出的题难度尚可，本萌新正好会做几题。 MISCWhat is that?加压出来是一张手指向下的图片，根据图片提示，flag应该隐藏在图片最下面，修改图片高度，得到flag。修改图片高度方法为：用十六进制阅读器打开图片，第二行的前4个字节是长度，5-8字节的高度，将原本的高度000001F4改为000002F4即可。 秘密电报下载得到一串培根密文，">
 <meta name="keywords" content="CTF">
 <meta property="og:type" content="article">
-<meta property="og:title" content="moctf部分题目writeup">
-<meta property="og:url" content="http://qxian.top/2018/03/21/moctf部分题目writeup/index.html">
+<meta property="og:title" content="ISCC-writeup">
+<meta property="og:url" content="http://qxian.top/2018/05/04/ISCC-writeup/index.html">
 <meta property="og:site_name" content="NetSpecter的博客">
-<meta property="og:description" content="moctf是理工和集大的大佬们搭建的平台，下面是一些我做出来的题目的writeup。 题目链接 MISC捉迷藏题目给了一个zhuomicang.zip的压缩包，解压得到flag.txt和2.jpg。果断打开flag.txt，里面的内容是：1bW9jdGZ7QnVfeUEwX3QxX2oxYTB9 看这架势应该是base64,拿去在线网站解一下，网址为：http://www1.tc711.com/t">
+<meta property="og:description" content="ISCC比赛从5月1号开始，持续一个月时间，前期放出的题难度尚可，本萌新正好会做几题。 MISCWhat is that?加压出来是一张手指向下的图片，根据图片提示，flag应该隐藏在图片最下面，修改图片高度，得到flag。修改图片高度方法为：用十六进制阅读器打开图片，第二行的前4个字节是长度，5-8字节的高度，将原本的高度000001F4改为000002F4即可。 秘密电报下载得到一串培根密文，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://qxian.top/2018/03/21/moctf部分题目writeup/flag.jpg">
-<meta property="og:image" content="http://qxian.top/2018/03/21/moctf部分题目writeup/js.jpg">
-<meta property="og:image" content="http://qxian.top/2018/03/21/moctf部分题目writeup/百变flag.jpg">
-<meta property="og:image" content="http://qxian.top/2018/03/21/moctf部分题目writeup/output.jpeg">
-<meta property="og:image" content="http://qxian.top/2018/03/21/moctf部分题目writeup/meimei.jpg">
-<meta property="og:image" content="http://qxian.top/2018/03/21/moctf部分题目writeup/pixel.jpg">
-<meta property="og:updated_time" content="2018-03-22T09:57:06.497Z">
+<meta property="og:image" content="http://qxian.top/2018/05/04/ISCC-writeup/misc1-2.PNG">
+<meta property="og:image" content="http://qxian.top/2018/05/04/ISCC-writeup/misc1-1.PNG">
+<meta property="og:image" content="http://qxian.top/2018/05/04/ISCC-writeup/misc2-1.PNG">
+<meta property="og:image" content="http://qxian.top/2018/05/04/ISCC-writeup/misc4-1.PNG">
+<meta property="og:image" content="http://qxian.top/2018/05/04/ISCC-writeup/misc4-2.PNG">
+<meta property="og:image" content="http://qxian.top/2018/05/04/ISCC-writeup/misc4-3.PNG">
+<meta property="og:image" content="http://qxian.top/2018/05/04/ISCC-writeup/misc6-1.PNG">
+<meta property="og:updated_time" content="2018-05-04T08:47:03.351Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="moctf部分题目writeup">
-<meta name="twitter:description" content="moctf是理工和集大的大佬们搭建的平台，下面是一些我做出来的题目的writeup。 题目链接 MISC捉迷藏题目给了一个zhuomicang.zip的压缩包，解压得到flag.txt和2.jpg。果断打开flag.txt，里面的内容是：1bW9jdGZ7QnVfeUEwX3QxX2oxYTB9 看这架势应该是base64,拿去在线网站解一下，网址为：http://www1.tc711.com/t">
-<meta name="twitter:image" content="http://qxian.top/2018/03/21/moctf部分题目writeup/flag.jpg">
+<meta name="twitter:title" content="ISCC-writeup">
+<meta name="twitter:description" content="ISCC比赛从5月1号开始，持续一个月时间，前期放出的题难度尚可，本萌新正好会做几题。 MISCWhat is that?加压出来是一张手指向下的图片，根据图片提示，flag应该隐藏在图片最下面，修改图片高度，得到flag。修改图片高度方法为：用十六进制阅读器打开图片，第二行的前4个字节是长度，5-8字节的高度，将原本的高度000001F4改为000002F4即可。 秘密电报下载得到一串培根密文，">
+<meta name="twitter:image" content="http://qxian.top/2018/05/04/ISCC-writeup/misc1-2.PNG">
 
 
 
@@ -127,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://qxian.top/2018/03/21/moctf部分题目writeup/"/>
+  <link rel="canonical" href="http://qxian.top/2018/05/04/ISCC-writeup/"/>
 
 
 
 
 
-  <title>moctf部分题目writeup | NetSpecter的博客</title>
+  <title>ISCC-writeup | NetSpecter的博客</title>
   
 
 
@@ -314,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://qxian.top/2018/03/21/moctf部分题目writeup/">
+    <link itemprop="mainEntityOfPage" href="http://qxian.top/2018/05/04/ISCC-writeup/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="NetSpecter">
@@ -331,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">moctf部分题目writeup</h1>
+          <h1 class="post-title" itemprop="name headline">ISCC-writeup</h1>
         
 
         <div class="post-meta">
@@ -343,8 +344,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-21T12:11:38+08:00">
-                2018-03-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-04T14:52:00+08:00">
+                2018-05-04
               </time>
             
 
@@ -362,8 +363,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/03/21/moctf部分题目writeup/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/21/moctf部分题目writeup/" itemprop="commentCount"></span>
+                <a href="/2018/05/04/ISCC-writeup/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/04/ISCC-writeup/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -371,7 +372,7 @@
 
           
           
-             <span id="/2018/03/21/moctf部分题目writeup/" class="leancloud_visitors" data-flag-title="moctf部分题目writeup">
+             <span id="/2018/05/04/ISCC-writeup/" class="leancloud_visitors" data-flag-title="ISCC-writeup">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -396,7 +397,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,505
+                  830
                 </span>
               
 
@@ -421,27 +422,14 @@
       
 
       
-        <pre><code>moctf是理工和集大的大佬们搭建的平台，下面是一些我做出来的题目的writeup。
-</code></pre><p><a href="http://www.moctf.com/" target="_blank" rel="noopener">题目链接</a></p>
-<h3 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h3><h2 id="捉迷藏"><a href="#捉迷藏" class="headerlink" title="捉迷藏"></a>捉迷藏</h2><p>题目给了一个zhuomicang.zip的压缩包，解压得到flag.txt和2.jpg。果断打开flag.txt，里面的内容是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bW9jdGZ7QnVfeUEwX3QxX2oxYTB9</span><br></pre></td></tr></table></figure></p>
-<p>看这架势应该是base64,拿去在线网站解一下，网址为：<br><a href="http://www1.tc711.com/tool/BASE64.htm" target="_blank" rel="noopener">http://www1.tc711.com/tool/BASE64.htm</a><br>解出来看起来像是flag了:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moctf&#123;Bu_yA0_t1_j1a0&#125;</span><br></pre></td></tr></table></figure></p>
-<p>但是仔细看，内容是不要提交，不管了先交，万一出题人想皮一下呢。交上去，报错。那只能看图片了，先用十六进制编辑器看一下，发现图片里面还有一个flag.txt。拿去kali里面binwalk一下，得到一个压缩包，解压得到flag.txt。里面是一串数字：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">109 111 99 116 102 123 104 49 100 51 95 97 78 100 95 115 51 51 75 125</span><br></pre></td></tr></table></figure></p>
-<p>猜想应该是十进制转ASCII码，工具解一下，得到flag：moctf{h1d3_aNd_s33K}<br>工具地址：链接：<a href="https://pan.baidu.com/s/1IDsoRb40Tv4TAnQxlEAOQQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1IDsoRb40Tv4TAnQxlEAOQQ</a> 密码：kch0</p>
-<h2 id="我可是黑客"><a href="#我可是黑客" class="headerlink" title="我可是黑客"></a>我可是黑客</h2><p>点进链接是一张图片，图片上写了审查元素，按了下F12，没有东西。好吧，保存下来，用十六进制编辑器打开，发现最后面有料：moctf{e4sy_1ma9e_m1sc}。</p>
-<h2 id="光阴似箭"><a href="#光阴似箭" class="headerlink" title="光阴似箭"></a>光阴似箭</h2><p>打开链接，是一张png的动图，保存为gif。然后拿去gif分解网站分解一下得到flag：<br><img src="/2018/03/21/moctf部分题目writeup/flag.jpg" alt="flag.jpg"><br><a href="http://www.asqql.com/gifcut/" target="_blank" rel="noopener">在线gif分解网站</a></p>
-<h2 id="扫扫出奇迹"><a href="#扫扫出奇迹" class="headerlink" title="扫扫出奇迹"></a>扫扫出奇迹</h2><p>二维码扫描工具，扫一下得到flag：moctf{qr_code_1s_1n_1t}</p>
-<h2 id="杰斯的魔法"><a href="#杰斯的魔法" class="headerlink" title="杰斯的魔法"></a>杰斯的魔法</h2><p>打开链接，是一串js代码，document.write()方法是用来向网页输出内容的。所以，复制一下扔控制台，得到flag。<br><img src="/2018/03/21/moctf部分题目writeup/js.jpg" alt="js.jpg"></p>
-<h2 id="百变flag"><a href="#百变flag" class="headerlink" title="百变flag"></a>百变flag</h2><p>打开链接，发现左上角有一小张图片，但是右键不能保存，返回题目链接，右键保存，得到一张f1ag.png。用十六进制编辑器查看，发现后面有一个f1ag.exe，于是拿到kali分解，提取出压缩包，里面就是f1ag.exe，但是打不开。<br>这时候打开十六进制编辑器（WinHex），在最后面发现重要线索。<br><img src="/2018/03/21/moctf部分题目writeup/百变flag.jpg" alt="百变flag"><br>图片中的数据好像被反过来了，这时候想到提示：特殊文件头+简单字符串编程，应该就是要把数据反回来，再加上文件头。<br>python启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">output = inputFile[::-1]</span><br><span class="line">outputFile = open(&apos;output&apos;, &apos;wb&apos;)</span><br><span class="line">outputFile.write(output)</span><br></pre></td></tr></table></figure></p>
-<p>运行后得到output文件，用WinHex查看发现已经反回来了，而且文件头已经有了：FFD8FFE1，是JPEG的文件格式，所以加上.jpeg后缀就得到flag了。<br><img src="/2018/03/21/moctf部分题目writeup/output.jpeg" alt="output.jpeg"></p>
-<h2 id="歌曲"><a href="#歌曲" class="headerlink" title="歌曲"></a>歌曲</h2><p>下载压缩包，解压得到apple.mp3和apple.png。图片中间藏着一个二维码，扫描出来是一串Unicode编码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\u7f8a\u7531\u5927\u4e95\u592b\u5927\u4eba\u738b\u4e2d\u5de5</span><br></pre></td></tr></table></figure></p>
-<p>拿去在线网站解一下：<br><a href="http://tool.chinaz.com/tools/unicode.aspx" target="_blank" rel="noopener">Unicode编码转换</a><br>得到一串中文：羊由大井夫大人王中工，很明显是当铺密码，解出来是：9158753624。<br>然后是一个MP3文件，猜测应该是一个MP3隐写，前面那串数字是密码，用MP3stego试一下：在Decode.exe目录下，运行cmd，输入Decode.exe -X apple.mp3 -P 9158753624（MP3文件放到该目录）。运行后生成一个apple.mp3.txt的文件，文件内容为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Q1RGe3hpYW9fcGluZ19ndW99</span><br></pre></td></tr></table></figure></p>
-<p>拿去base64一下，得到：CTF{xiao_ping_guo}</p>
-<h2 id="机密压缩包"><a href="#机密压缩包" class="headerlink" title="机密压缩包"></a>机密压缩包</h2><p>这题刚开始没什么头绪，试了下伪加密发现不对，百度了一波，发现一篇类似的文章安利一下：<br><a href="https://www.cnblogs.com/WangAoBo/p/6951160.html" target="_blank" rel="noopener">crc32碰撞</a><br>这是关于CRC32碰撞的一道bugku上的题目的writeup，当压缩内容较小时，可以利用里面文件的CRC校验值进行碰撞攻击，下面是解题脚本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python</span><br><span class="line"># -*- coding: UTF-8 -*-</span><br><span class="line"></span><br><span class="line">import binascii</span><br><span class="line">import time</span><br><span class="line">import winsound</span><br><span class="line"></span><br><span class="line">startTime = time.time() </span><br><span class="line">keys = [int(&quot;0x5A52D4F4&quot;,16),</span><br><span class="line">        int(&quot;0x5FA0F28B&quot;,16),</span><br><span class="line">		int(&quot;0xF899F771&quot;,16),</span><br><span class="line">		int(&quot;0x957AF788&quot;,16),</span><br><span class="line">		int(&quot;0xF8208C12&quot;,16)]</span><br><span class="line"></span><br><span class="line">myRange = [&apos; &apos;,  &apos;!&apos;,  &apos;&quot;&apos;,  &apos;#&apos;,  &apos;$&apos;,  &apos;%&apos;,  &apos;&amp;&apos;,  &apos;\&apos;&apos;,  &apos;(&apos;,  &apos;)&apos;,  &apos;*&apos;,  &apos;+&apos;,  &apos;,&apos;,  &apos;-&apos;,  &apos;.&apos;,  &apos;/&apos;,  &apos;0&apos;,  &apos;1&apos;,  &apos;2&apos;,  &apos;3&apos;,  &apos;4&apos;,  &apos;5&apos;,  &apos;6&apos;,  &apos;7&apos;,  &apos;8&apos;,  &apos;9&apos;,  &apos;:&apos;,  &apos;;&apos;,  &apos;&lt;&apos;,  &apos;=&apos;,  &apos;&gt;&apos;,  &apos;?&apos;,  &apos;@&apos;,  &apos;A&apos;,  &apos;B&apos;,  &apos;C&apos;,  &apos;D&apos;,  &apos;E&apos;,  &apos;F&apos;,  &apos;G&apos;,  &apos;H&apos;,  &apos;I&apos;,  &apos;J&apos;,  &apos;K&apos;,  &apos;L&apos;,  &apos;M&apos;,  &apos;N&apos;,  &apos;O&apos;,  &apos;P&apos;,  &apos;Q&apos;,  &apos;R&apos;,  &apos;S&apos;,  &apos;T&apos;,  &apos;U&apos;,  &apos;V&apos;,  &apos;W&apos;,  &apos;X&apos;,  &apos;Y&apos;,  &apos;Z&apos;,  &apos;[&apos;,  &apos;\\&apos;,  &apos;]&apos;,  &apos;^&apos;,  &apos;_&apos;,  &apos;`&apos;,  &apos;a&apos;,  &apos;b&apos;,  &apos;c&apos;,  &apos;d&apos;,  &apos;e&apos;,  &apos;f&apos;,  &apos;g&apos;,  &apos;h&apos;,  &apos;i&apos;,  &apos;j&apos;,  &apos;k&apos;,  &apos;l&apos;,  &apos;m&apos;,  &apos;n&apos;,  &apos;o&apos;,  &apos;p&apos;,  &apos;q&apos;,  &apos;r&apos;,  &apos;s&apos;,  &apos;t&apos;,  &apos;u&apos;,  &apos;v&apos;,  &apos;w&apos;,  &apos;x&apos;,  &apos;y&apos;,  &apos;z&apos;,  &apos;&#123;&apos;,  &apos;|&apos;,  &apos;&#125;&apos;,  &apos;~&apos;]</span><br><span class="line"></span><br><span class="line">RESULT = &#123;&#125; </span><br><span class="line"></span><br><span class="line">def getCRC32(str):</span><br><span class="line">    &apos;&apos;&apos;</span><br><span class="line">    计算CRC32</span><br><span class="line">    &apos;&apos;&apos;</span><br><span class="line">    return (binascii.crc32(str) &amp; 0xffffffff)</span><br><span class="line"></span><br><span class="line">def checkSuccess(keys, mycrc32, words):</span><br><span class="line">    &apos;&apos;&apos;</span><br><span class="line">    检测是否成功匹配</span><br><span class="line">    参数 :</span><br><span class="line">        keys : 所有需要爆破的CRC32值</span><br><span class="line">        mycrc32 : 某次计算得到的明文(words)的CRC32</span><br><span class="line">        words : 明文</span><br><span class="line">    &apos;&apos;&apos;</span><br><span class="line">    global RESULT</span><br><span class="line">    for key in keys:</span><br><span class="line">        if key == mycrc32:</span><br><span class="line">            RESULT[keys.index(key)] = words</span><br><span class="line"></span><br><span class="line">words = &quot;&quot;</span><br><span class="line"></span><br><span class="line">counter = 0 </span><br><span class="line">oldTime = time.clock()</span><br><span class="line"></span><br><span class="line">for i in myRange:</span><br><span class="line">    nowTime = time.clock()</span><br><span class="line">    print &quot;Trying : &quot; + words + &quot;\t&quot; + &quot;Speed : &quot; + str(counter / (nowTime - oldTime)) + &quot; / s&quot; + &quot;\t&quot; + &quot;Result : &quot; + str(RESULT) # 输出日志</span><br><span class="line">    oldTime = nowTime</span><br><span class="line">    for j in myRange:</span><br><span class="line">        for k in myRange:</span><br><span class="line">            words = i + j + k </span><br><span class="line">            counter += 1</span><br><span class="line">            myCRC32 = getCRC32(words) #</span><br><span class="line">            checkSuccess(keys, myCRC32, words) </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">endTime = time.time()</span><br><span class="line"></span><br><span class="line">print &quot;Result : &quot; + str(RESULT) </span><br><span class="line"></span><br><span class="line">print &quot;Cost : &quot; + str(endTime-startTime) + &quot; s&quot;</span><br></pre></td></tr></table></figure></p>
-<p>运行得到：ctf{qwasdzxcqa}</p>
-<h2 id="假装安全"><a href="#假装安全" class="headerlink" title="假装安全"></a>假装安全</h2><p>50分的题目，应该是水题。jpg图片一般先用stegsolve和binwalk试一下，先用binwalk跑一下，得到一个压缩包，里面就是flag.txt。打开看到一串字符串，栅栏加密，密码为2。<br><code>mcfCrflyS1eot{@eul_ld}</code></p>
-<h2 id="女神的告白"><a href="#女神的告白" class="headerlink" title="女神的告白"></a>女神的告白</h2><p>题目已经说的很清楚了，暴力破解，前六位为：meimei，用木头字典生成工具写个字典，跑一下得到密码：<br><img src="/2018/03/21/moctf部分题目writeup/meimei.jpg" alt="meimei.jpg"><br>解压得到flag：moctf{Y0u_@re_A_g00d_man}</p>
-<h2 id="蒙娜丽萨的微笑"><a href="#蒙娜丽萨的微笑" class="headerlink" title="蒙娜丽萨的微笑"></a>蒙娜丽萨的微笑</h2><p>提示说注意图片名字，有道了一下发现是像素的意思，想到图片隐写，老规矩，binwalk先跑一下（比较快），得到一个压缩包，但是没有密码。说明密码还在这张图片里面。提示二说base64，看来密码是base64得到的，但是确不知道从何下手。接下来对图片进行各种尝试，最后试出来：修改图片宽度。<br><img src="/2018/03/21/moctf部分题目writeup/pixel.jpg" alt="pixel.jpg"><br>图片宽度就是图中红线处，第二行前4字节是长度，接着4字节是宽度。改完之后，发现图片下面有一串字符串，拿去base64，得到密码是：simleisintering。解压得到flag：moctf{Int3resting_piXe1}</p>
-<p>未完待续。。。</p>
+        <pre><code>ISCC比赛从5月1号开始，持续一个月时间，前期放出的题难度尚可，本萌新正好会做几题。
+</code></pre><h2 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h2><h3 id="What-is-that"><a href="#What-is-that" class="headerlink" title="What is that?"></a>What is that?</h3><p>加压出来是一张手指向下的图片，根据图片提示，flag应该隐藏在图片最下面，修改图片高度，得到flag。<br><img src="/2018/05/04/ISCC-writeup/misc1-2.PNG" alt="misc1-2"><br>修改图片高度方法为：用十六进制阅读器打开图片，第二行的前4个字节是长度，5-8字节的高度，将原本的高度000001F4改为000002F4即可。<br><img src="/2018/05/04/ISCC-writeup/misc1-1.PNG" alt="misc1-1"></p>
+<h3 id="秘密电报"><a href="#秘密电报" class="headerlink" title="秘密电报"></a>秘密电报</h3><p>下载得到一串培根密文，培根密码有两种解密方式，解密对应的字母略有差别，利用第一种方法解密出来的flag是正确的，因为有ISCC开头。<br><img src="/2018/05/04/ISCC-writeup/misc2-1.PNG" alt="misc2-1"></p>
+<h3 id="重重谍影"><a href="#重重谍影" class="headerlink" title="重重谍影"></a>重重谍影</h3><p>题目给了一串base64编码，需要解密多次，中间还会遇到url编码，%3D是url中的”=”号，解到最后发现base64不能再解了，这时候分析这串字符串，发现有%0A，这是”/n”符号，就是回车，将%0A换成回车符后，拿去AES解密，得到一串加密的文字，复制一下去百度，发现有个与佛论禅，到里面解密得到flag。<br>解密网站：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http://tool.oschina.net/encrypt?type=3</span><br><span class="line">http://tool.oschina.net/encrypt</span><br><span class="line">http://www.keyfc.net/bbs/tools/tudoucode.aspx</span><br></pre></td></tr></table></figure></p>
+<h3 id="Where-is-the-FLAG"><a href="#Where-is-the-FLAG" class="headerlink" title="Where is the FLAG?"></a>Where is the FLAG?</h3><p>用十六进制阅读器打开图片，在前面发现关键信息：adobe fireworks cs5，下载该软件。<br><img src="/2018/05/04/ISCC-writeup/misc4-1.PNG" alt="misc4-1"><br>发现是图片编辑的软件，用该软件打开图片，在图层flag的位图处，将可视关掉，可以看到原本图片下面还有一个二维码。<br><img src="/2018/05/04/ISCC-writeup/misc4-2.PNG" alt="misc4-2"><br>扫描发现扫不出来，继续观察，发现其他图层也有二维码碎片，总共8片，图片总大小为266乘266，所以将每个碎片改为89乘89，就可以拼接成一个完整的二维码，扫描得到flag。<br><img src="/2018/05/04/ISCC-writeup/misc4-3.PNG" alt="misc4-3"></p>
+<h3 id="凯撒十三世"><a href="#凯撒十三世" class="headerlink" title="凯撒十三世"></a>凯撒十三世</h3><p>题目给了一串字符：ebdgc697g95w3，根据题目意思，进行rot13，得到：roqtp697t95j3，提交发现不对，仔细观察发现是键盘密码，读取字母在键盘上的下一个位置，得到：flag:yougotme。<br>rot13在线解密网站：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.qqxiuzi.cn/bianma/ROT5-13-18-47.php</span><br></pre></td></tr></table></figure></p>
+<h3 id="一只猫的心思"><a href="#一只猫的心思" class="headerlink" title="一只猫的心思"></a>一只猫的心思</h3><p>用十六进制阅读器打开图片，在中间发现线索。<br><img src="/2018/05/04/ISCC-writeup/misc6-1.PNG" alt="misc6-1"><br>觉得应该是图片中隐藏了word文件等东西，拿去binwalk，发现没用，这时候搜索jpg图片的文件尾，为FFD9，将FFD9后面的数据复制下来，新建一个文件将数据粘贴进去，查看文件头发现D0CF11E0A1B11AE1是doc、dot等文件的文件头，另存为.doc文件，打开发现就是之前的与佛论禅的加密。<br>解密得到一串16进制数，转换成ASCII码后得到base64编码，解码后仍然是一串类似base64的编码，但是再解就是一串乱码。仔细观察发现编码中只有A-Z和2-7，是base32编码，解码后是一串数字，转换成ASCII码后……经过多次的base64、base32和ASCII码转换，得到flag，工具在题目文件中。<br>base32在线解密：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://tomeko.net/online_tools/base32.php?lang=en</span><br></pre></td></tr></table></figure></p>
+<h3 id="暴力XX不可取"><a href="#暴力XX不可取" class="headerlink" title="暴力XX不可取"></a>暴力XX不可取</h3><p>下载得到flag.txt文件，凯撒后iscc开头的那个就是flag。（这题150分不知道他想考啥…）</p>
 
       
     </div>
@@ -500,7 +488,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://qxian.top/2018/03/21/moctf部分题目writeup/" title="moctf部分题目writeup">http://qxian.top/2018/03/21/moctf部分题目writeup/</a>
+    <a href="http://qxian.top/2018/05/04/ISCC-writeup/" title="ISCC-writeup">http://qxian.top/2018/05/04/ISCC-writeup/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -528,8 +516,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/19/华为入门之HCNA实验/" rel="next" title="华为入门之HCNA实验">
-                <i class="fa fa-chevron-left"></i> 华为入门之HCNA实验
+              <a href="/2018/05/01/全国大学生信息安全竞赛部分writeup/" rel="next" title="全国大学生信息安全竞赛部分writeup">
+                <i class="fa fa-chevron-left"></i> 全国大学生信息安全竞赛部分writeup
               </a>
             
           </div>
@@ -537,10 +525,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/27/利用SAM破解系统登录密码/" rel="prev" title="利用SAM破解系统登录密码">
-                利用SAM破解系统登录密码 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -764,7 +748,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#MISC"><span class="nav-number">1.</span> <span class="nav-text">MISC</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#捉迷藏"><span class="nav-number"></span> <span class="nav-text">捉迷藏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我可是黑客"><span class="nav-number"></span> <span class="nav-text">我可是黑客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#光阴似箭"><span class="nav-number"></span> <span class="nav-text">光阴似箭</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扫扫出奇迹"><span class="nav-number"></span> <span class="nav-text">扫扫出奇迹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#杰斯的魔法"><span class="nav-number"></span> <span class="nav-text">杰斯的魔法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#百变flag"><span class="nav-number"></span> <span class="nav-text">百变flag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#歌曲"><span class="nav-number"></span> <span class="nav-text">歌曲</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机密压缩包"><span class="nav-number"></span> <span class="nav-text">机密压缩包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#假装安全"><span class="nav-number"></span> <span class="nav-text">假装安全</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#女神的告白"><span class="nav-number"></span> <span class="nav-text">女神的告白</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#蒙娜丽萨的微笑"><span class="nav-number"></span> <span class="nav-text">蒙娜丽萨的微笑</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MISC"><span class="nav-number">1.</span> <span class="nav-text">MISC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-that"><span class="nav-number">1.1.</span> <span class="nav-text">What is that?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#秘密电报"><span class="nav-number">1.2.</span> <span class="nav-text">秘密电报</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重重谍影"><span class="nav-number">1.3.</span> <span class="nav-text">重重谍影</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Where-is-the-FLAG"><span class="nav-number">1.4.</span> <span class="nav-text">Where is the FLAG?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#凯撒十三世"><span class="nav-number">1.5.</span> <span class="nav-text">凯撒十三世</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一只猫的心思"><span class="nav-number">1.6.</span> <span class="nav-text">一只猫的心思</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#暴力XX不可取"><span class="nav-number">1.7.</span> <span class="nav-text">暴力XX不可取</span></a></li></ol></li></ol></div>
             
 
           </div>
